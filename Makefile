@@ -151,3 +151,10 @@ doctest:
 	$(SPHINXBUILD) -b doctest $(ALLSPHINXOPTS) $(BUILDDIR)/doctest
 	@echo "Testing of doctests in the sources finished, look at the " \
 	      "results in $(BUILDDIR)/doctest/output.txt."
+
+#    @echo $(DOMAIN_NAME) > $(BUILDDIR)/html/CNAME
+publish: html
+	ghp-import -n -p ./_build/html
+	@echo
+	@echo "HTML output published on github-pages"
+

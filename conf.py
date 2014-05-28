@@ -151,6 +151,7 @@ html_static_path = ['_static']
 
 # If true, links to the reST sources are added to the pages.
 #html_show_sourcelink = True
+html_show_sourcelink = False
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 #html_show_sphinx = True
@@ -186,7 +187,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'Guidetothecommandlinefordatascientist.tex', u'Guide to the command line for data scientist Documentation',
+  ('index', 'Guidetothecommandlinefordatascientist.tex', u'Guide to the command line for data scientist',
    u'K. Jarrod Millman', 'manual'),
 ]
 
@@ -216,7 +217,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'guidetothecommandlinefordatascientist', u'Guide to the command line for data scientist Documentation',
+    ('index', 'guidetothecommandlinefordatascientist', u'Guide to the command line for data scientist',
      [u'K. Jarrod Millman'], 1)
 ]
 
@@ -230,7 +231,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'Guidetothecommandlinefordatascientist', u'Guide to the command line for data scientist Documentation',
+  ('index', 'Guidetothecommandlinefordatascientist', u'Guide to the command line for data scientist',
    u'K. Jarrod Millman', 'Guidetothecommandlinefordatascientist', 'One line description of project.',
    'Miscellaneous'),
 ]

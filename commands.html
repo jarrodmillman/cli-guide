@@ -1,0 +1,3039 @@
+
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Files and directories &mdash; Command line guide for data scientist 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.1.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Command line guide for data scientist 0.1 documentation" href="index.html" />
+    <link rel="up" title="Command Line Utilities" href="append/cl-utils.html" />
+    <link rel="next" title="File System Layout" href="append/fs-layout.html" />
+    <link rel="prev" title="Command Line Utilities" href="append/cl-utils.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Command line guide for data scientist</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="append/index.html">Appendices</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Files and directories</a><ul>
+<li><a class="reference internal" href="#cd-change-the-current-working-directory-to-directory">cd&nbsp;&#8211;&nbsp;Change the current working directory to <em>directory</em>.</a><ul>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#frequently-used-options">Frequently used options</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#data-manipulation">Data manipulation</a><ul>
+<li><a class="reference internal" href="#dos2unix-dos-mac-to-unix-and-vice-versa-text-file-format-converter">dos2unix &#8211; DOS/Mac to Unix and vice versa text file format converter</a></li>
+<li><a class="reference internal" href="#apropos-search-the-whatis-database-for-strings">apropos&nbsp;&#8211;&nbsp;search the whatis database for strings</a></li>
+<li><a class="reference internal" href="#id1">Description</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#bg-background">bg &#8211;&nbsp;background</a><ul>
+<li><a class="reference internal" href="#id2">Synopsis</a></li>
+<li><a class="reference internal" href="#id3">Description</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#bzip2-a-block-sorting-file-compressor">bzip2&nbsp;&#8211;&nbsp;a block-sorting file compressor</a><ul>
+<li><a class="reference internal" href="#id4">Synopsis</a></li>
+<li><a class="reference internal" href="#id5">Description</a></li>
+<li><a class="reference internal" href="#id6">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cat">cat</a><ul>
+<li><a class="reference internal" href="#name">Name</a></li>
+<li><a class="reference internal" href="#id7">Synopsis</a></li>
+<li><a class="reference internal" href="#id8">Description</a></li>
+<li><a class="reference internal" href="#id9">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chmod">chmod</a><ul>
+<li><a class="reference internal" href="#id10">Name</a></li>
+<li><a class="reference internal" href="#id11">Synopsis</a></li>
+<li><a class="reference internal" href="#id12">Description</a></li>
+<li><a class="reference internal" href="#id13">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#clear">clear</a><ul>
+<li><a class="reference internal" href="#id14">Name</a></li>
+<li><a class="reference internal" href="#id15">Synopsis</a></li>
+<li><a class="reference internal" href="#id16">Description</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cmp">cmp</a><ul>
+<li><a class="reference internal" href="#id17">Name</a></li>
+<li><a class="reference internal" href="#id18">Synopsis</a></li>
+<li><a class="reference internal" href="#id19">Description</a></li>
+<li><a class="reference internal" href="#id20">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#comm">comm</a><ul>
+<li><a class="reference internal" href="#id21">Name</a></li>
+<li><a class="reference internal" href="#id22">Synopsis</a></li>
+<li><a class="reference internal" href="#id23">Description</a></li>
+<li><a class="reference internal" href="#id24">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cp-copy-files-and-directories">cp&nbsp;&#8211;&nbsp;copy files and directories</a><ul>
+<li><a class="reference internal" href="#id25">Synopsis</a></li>
+<li><a class="reference internal" href="#id26">Description</a></li>
+<li><a class="reference internal" href="#id27">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#date">date</a><ul>
+<li><a class="reference internal" href="#id28">Name</a></li>
+<li><a class="reference internal" href="#id29">Synopsis</a></li>
+<li><a class="reference internal" href="#id30">Description</a></li>
+<li><a class="reference internal" href="#id31">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#df">df</a><ul>
+<li><a class="reference internal" href="#id32">Name</a></li>
+<li><a class="reference internal" href="#id33">Synopsis</a></li>
+<li><a class="reference internal" href="#id34">Description</a></li>
+<li><a class="reference internal" href="#id35">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#diff3">diff3</a><ul>
+<li><a class="reference internal" href="#id36">Name</a></li>
+<li><a class="reference internal" href="#id37">Synopsis</a></li>
+<li><a class="reference internal" href="#id38">Description</a></li>
+<li><a class="reference internal" href="#id39">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#diff">diff</a><ul>
+<li><a class="reference internal" href="#id40">Name</a></li>
+<li><a class="reference internal" href="#id41">Synopsis</a></li>
+<li><a class="reference internal" href="#id42">Description</a></li>
+<li><a class="reference internal" href="#id43">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dirs">dirs</a><ul>
+<li><a class="reference internal" href="#id44">Name</a></li>
+<li><a class="reference internal" href="#id45">Synopsis</a></li>
+<li><a class="reference internal" href="#id46">Description</a></li>
+<li><a class="reference internal" href="#id47">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#du">du</a><ul>
+<li><a class="reference internal" href="#id48">Name</a></li>
+<li><a class="reference internal" href="#id49">Synopsis</a></li>
+<li><a class="reference internal" href="#id50">Description</a></li>
+<li><a class="reference internal" href="#id51">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#echo">echo</a><ul>
+<li><a class="reference internal" href="#id52">Name</a></li>
+<li><a class="reference internal" href="#id53">Synopsis</a></li>
+<li><a class="reference internal" href="#id54">Description</a></li>
+<li><a class="reference internal" href="#id55">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fg">fg</a><ul>
+<li><a class="reference internal" href="#id56">Name</a></li>
+<li><a class="reference internal" href="#id57">Synopsis</a></li>
+<li><a class="reference internal" href="#id58">Description</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#file">file</a><ul>
+<li><a class="reference internal" href="#id59">Name</a></li>
+<li><a class="reference internal" href="#id60">Synopsis</a></li>
+<li><a class="reference internal" href="#id61">Description</a></li>
+<li><a class="reference internal" href="#id62">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#find">find</a><ul>
+<li><a class="reference internal" href="#id63">Name</a></li>
+<li><a class="reference internal" href="#id64">Synopsis</a></li>
+<li><a class="reference internal" href="#id65">Description</a></li>
+<li><a class="reference internal" href="#expressions">Expressions</a></li>
+<li><a class="reference internal" href="#id66">Frequently used options</a></li>
+<li><a class="reference internal" href="#frequently-used-tests">Frequently used tests</a></li>
+<li><a class="reference internal" href="#frequently-used-actions">Frequently used actions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#free">free</a><ul>
+<li><a class="reference internal" href="#id67">Name</a></li>
+<li><a class="reference internal" href="#id68">Synopsis</a></li>
+<li><a class="reference internal" href="#id69">Description</a></li>
+<li><a class="reference internal" href="#id70">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ftp">ftp</a><ul>
+<li><a class="reference internal" href="#id71">Name</a></li>
+<li><a class="reference internal" href="#id72">Synopsis</a></li>
+<li><a class="reference internal" href="#id73">Description</a></li>
+<li><a class="reference internal" href="#id74">Frequently used options</a></li>
+<li><a class="reference internal" href="#frequently-used-commands">Frequently used commands</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#grep">grep</a><ul>
+<li><a class="reference internal" href="#id75">Name</a></li>
+<li><a class="reference internal" href="#id76">Synopsis</a></li>
+<li><a class="reference internal" href="#id77">Description</a></li>
+<li><a class="reference internal" href="#id78">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gunzip">gunzip</a><ul>
+<li><a class="reference internal" href="#id79">Name</a></li>
+<li><a class="reference internal" href="#id80">Synopsis</a></li>
+<li><a class="reference internal" href="#id81">Description</a></li>
+<li><a class="reference internal" href="#id82">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gzip">gzip</a><ul>
+<li><a class="reference internal" href="#id83">Name</a></li>
+<li><a class="reference internal" href="#id84">Synopsis</a></li>
+<li><a class="reference internal" href="#id85">Description</a></li>
+<li><a class="reference internal" href="#id86">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#head">head</a><ul>
+<li><a class="reference internal" href="#id87">Name</a></li>
+<li><a class="reference internal" href="#id88">Synopsis</a></li>
+<li><a class="reference internal" href="#id89">Description</a></li>
+<li><a class="reference internal" href="#id90">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#history">history</a><ul>
+<li><a class="reference internal" href="#id91">Name</a></li>
+<li><a class="reference internal" href="#id92">Synopsis</a></li>
+<li><a class="reference internal" href="#id93">Description</a></li>
+<li><a class="reference internal" href="#id94">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#jobs">jobs</a><ul>
+<li><a class="reference internal" href="#id95">Name</a></li>
+<li><a class="reference internal" href="#id96">Synopsis</a></li>
+<li><a class="reference internal" href="#id97">Description</a></li>
+<li><a class="reference internal" href="#id98">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#killall">killall</a><ul>
+<li><a class="reference internal" href="#id99">Name</a></li>
+<li><a class="reference internal" href="#id100">Synopsis</a></li>
+<li><a class="reference internal" href="#id101">Description</a></li>
+<li><a class="reference internal" href="#id102">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#kill">kill</a><ul>
+<li><a class="reference internal" href="#id103">Name</a></li>
+<li><a class="reference internal" href="#id104">Synopsis</a></li>
+<li><a class="reference internal" href="#id105">Description</a></li>
+<li><a class="reference internal" href="#id106">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#less">less</a><ul>
+<li><a class="reference internal" href="#id107">Name</a></li>
+<li><a class="reference internal" href="#id108">Synopsis</a></li>
+<li><a class="reference internal" href="#id109">Description</a></li>
+<li><a class="reference internal" href="#id110">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ln">ln</a><ul>
+<li><a class="reference internal" href="#id111">Name</a></li>
+<li><a class="reference internal" href="#id112">Synopsis</a></li>
+<li><a class="reference internal" href="#id113">Description</a></li>
+<li><a class="reference internal" href="#id114">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ls">ls</a><ul>
+<li><a class="reference internal" href="#id115">Name</a></li>
+<li><a class="reference internal" href="#id116">Synopsis</a></li>
+<li><a class="reference internal" href="#id117">Description</a></li>
+<li><a class="reference internal" href="#id118">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mail">mail</a><ul>
+<li><a class="reference internal" href="#id119">Name</a></li>
+<li><a class="reference internal" href="#id120">Synopsis</a></li>
+<li><a class="reference internal" href="#id121">Description</a></li>
+<li><a class="reference internal" href="#id122">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#man">man</a><ul>
+<li><a class="reference internal" href="#id123">Name</a></li>
+<li><a class="reference internal" href="#id124">Synopsis</a></li>
+<li><a class="reference internal" href="#id125">Description</a></li>
+<li><a class="reference internal" href="#id126">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#more">more</a><ul>
+<li><a class="reference internal" href="#id127">Name</a></li>
+<li><a class="reference internal" href="#id128">Synopsis</a></li>
+<li><a class="reference internal" href="#id129">Description</a></li>
+<li><a class="reference internal" href="#id130">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mount">mount</a><ul>
+<li><a class="reference internal" href="#id131">Name</a></li>
+<li><a class="reference internal" href="#id132">Synopsis</a></li>
+<li><a class="reference internal" href="#id133">Description</a></li>
+<li><a class="reference internal" href="#id134">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mv">mv</a><ul>
+<li><a class="reference internal" href="#id135">Name</a></li>
+<li><a class="reference internal" href="#id136">Synopsis</a></li>
+<li><a class="reference internal" href="#id137">Description</a></li>
+<li><a class="reference internal" href="#id138">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#nohup">nohup</a><ul>
+<li><a class="reference internal" href="#id139">Name</a></li>
+<li><a class="reference internal" href="#id140">Synopsis</a></li>
+<li><a class="reference internal" href="#id141">Description</a></li>
+<li><a class="reference internal" href="#id142">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#paste">paste</a><ul>
+<li><a class="reference internal" href="#id143">Name</a></li>
+<li><a class="reference internal" href="#id144">Synopsis</a></li>
+<li><a class="reference internal" href="#id145">Description</a></li>
+<li><a class="reference internal" href="#id146">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pine">pine</a><ul>
+<li><a class="reference internal" href="#id147">Name</a></li>
+<li><a class="reference internal" href="#id148">Synopsis</a></li>
+<li><a class="reference internal" href="#id149">Description</a></li>
+<li><a class="reference internal" href="#id150">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#popd">popd</a><ul>
+<li><a class="reference internal" href="#id151">Name</a></li>
+<li><a class="reference internal" href="#id152">Synopsis</a></li>
+<li><a class="reference internal" href="#id153">Description</a></li>
+<li><a class="reference internal" href="#id154">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ps">ps</a><ul>
+<li><a class="reference internal" href="#id155">Name</a></li>
+<li><a class="reference internal" href="#id156">Synopsis</a></li>
+<li><a class="reference internal" href="#id157">Description</a></li>
+<li><a class="reference internal" href="#id158">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pstree">pstree</a><ul>
+<li><a class="reference internal" href="#id159">Name</a></li>
+<li><a class="reference internal" href="#id160">Synopsis</a></li>
+<li><a class="reference internal" href="#id161">Description</a></li>
+<li><a class="reference internal" href="#id162">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pushd">pushd</a><ul>
+<li><a class="reference internal" href="#id163">Name</a></li>
+<li><a class="reference internal" href="#id164">Synopsis</a></li>
+<li><a class="reference internal" href="#id165">Description</a></li>
+<li><a class="reference internal" href="#id166">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pwd">pwd</a><ul>
+<li><a class="reference internal" href="#id167">Name</a></li>
+<li><a class="reference internal" href="#id168">Synopsis</a></li>
+<li><a class="reference internal" href="#id169">Description</a></li>
+<li><a class="reference internal" href="#id170">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#quota">quota</a><ul>
+<li><a class="reference internal" href="#id171">Name</a></li>
+<li><a class="reference internal" href="#id172">Synopsis</a></li>
+<li><a class="reference internal" href="#id173">Description</a></li>
+<li><a class="reference internal" href="#id174">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rmdir">rmdir</a><ul>
+<li><a class="reference internal" href="#id175">Name</a></li>
+<li><a class="reference internal" href="#id176">Synopsis</a></li>
+<li><a class="reference internal" href="#id177">Description</a></li>
+<li><a class="reference internal" href="#id178">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rm">rm</a><ul>
+<li><a class="reference internal" href="#id179">Name</a></li>
+<li><a class="reference internal" href="#id180">Synopsis</a></li>
+<li><a class="reference internal" href="#id181">Description</a></li>
+<li><a class="reference internal" href="#id182">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#scp">scp</a><ul>
+<li><a class="reference internal" href="#id183">Name</a></li>
+<li><a class="reference internal" href="#id184">Synopsis</a></li>
+<li><a class="reference internal" href="#id185">Description</a></li>
+<li><a class="reference internal" href="#id186">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sdiff">sdiff</a><ul>
+<li><a class="reference internal" href="#id187">Name</a></li>
+<li><a class="reference internal" href="#id188">Synopsis</a></li>
+<li><a class="reference internal" href="#id189">Description</a></li>
+<li><a class="reference internal" href="#id190">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sftp">sftp</a><ul>
+<li><a class="reference internal" href="#id191">Name</a></li>
+<li><a class="reference internal" href="#id192">Synopsis</a></li>
+<li><a class="reference internal" href="#id193">Description</a></li>
+<li><a class="reference internal" href="#id194">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sleep">sleep</a><ul>
+<li><a class="reference internal" href="#id195">Name</a></li>
+<li><a class="reference internal" href="#id196">Synopsis</a></li>
+<li><a class="reference internal" href="#id197">Description</a></li>
+<li><a class="reference internal" href="#id198">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sort">sort</a><ul>
+<li><a class="reference internal" href="#id199">Name</a></li>
+<li><a class="reference internal" href="#id200">Synopsis</a></li>
+<li><a class="reference internal" href="#id201">Description</a></li>
+<li><a class="reference internal" href="#id202">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#split">split</a><ul>
+<li><a class="reference internal" href="#id203">Name</a></li>
+<li><a class="reference internal" href="#id204">Synopsis</a></li>
+<li><a class="reference internal" href="#id205">Description</a></li>
+<li><a class="reference internal" href="#id206">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ssh">ssh</a><ul>
+<li><a class="reference internal" href="#id207">Name</a></li>
+<li><a class="reference internal" href="#id208">Synopsis</a></li>
+<li><a class="reference internal" href="#id209">Description</a></li>
+<li><a class="reference internal" href="#id210">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#stat">stat</a><ul>
+<li><a class="reference internal" href="#id211">Name</a></li>
+<li><a class="reference internal" href="#id212">Synopsis</a></li>
+<li><a class="reference internal" href="#id213">Description</a></li>
+<li><a class="reference internal" href="#id214">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sudo">sudo</a><ul>
+<li><a class="reference internal" href="#id215">Name</a></li>
+<li><a class="reference internal" href="#id216">Synopsis</a></li>
+<li><a class="reference internal" href="#id217">Description</a></li>
+<li><a class="reference internal" href="#id218">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#su">su</a><ul>
+<li><a class="reference internal" href="#id219">Name</a></li>
+<li><a class="reference internal" href="#id220">Synopsis</a></li>
+<li><a class="reference internal" href="#id221">Description</a></li>
+<li><a class="reference internal" href="#id222">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tac">tac</a><ul>
+<li><a class="reference internal" href="#id223">Name</a></li>
+<li><a class="reference internal" href="#id224">Synopsis</a></li>
+<li><a class="reference internal" href="#id225">Description</a></li>
+<li><a class="reference internal" href="#id226">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tail">tail</a><ul>
+<li><a class="reference internal" href="#id227">Name</a></li>
+<li><a class="reference internal" href="#id228">Synopsis</a></li>
+<li><a class="reference internal" href="#id229">Description</a></li>
+<li><a class="reference internal" href="#id230">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tar">tar</a><ul>
+<li><a class="reference internal" href="#id231">Name</a></li>
+<li><a class="reference internal" href="#id232">Synopsis</a></li>
+<li><a class="reference internal" href="#id233">Description</a></li>
+<li><a class="reference internal" href="#id234">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tee">tee</a><ul>
+<li><a class="reference internal" href="#id235">Name</a></li>
+<li><a class="reference internal" href="#id236">Synopsis</a></li>
+<li><a class="reference internal" href="#id237">Description</a></li>
+<li><a class="reference internal" href="#id238">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#telnet">telnet</a><ul>
+<li><a class="reference internal" href="#id239">Name</a></li>
+<li><a class="reference internal" href="#id240">Synopsis</a></li>
+<li><a class="reference internal" href="#id241">Description</a></li>
+<li><a class="reference internal" href="#id242">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#top">top</a><ul>
+<li><a class="reference internal" href="#id243">Name</a></li>
+<li><a class="reference internal" href="#id244">Synopsis</a></li>
+<li><a class="reference internal" href="#id245">Description</a></li>
+<li><a class="reference internal" href="#frequently-used-interactive-commands">Frequently used interactive commands</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#touch">touch</a><ul>
+<li><a class="reference internal" href="#id246">Name</a></li>
+<li><a class="reference internal" href="#id247">Synopsis</a></li>
+<li><a class="reference internal" href="#id248">Description</a></li>
+<li><a class="reference internal" href="#id249">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tr">tr</a><ul>
+<li><a class="reference internal" href="#id250">Name</a></li>
+<li><a class="reference internal" href="#id251">Synopsis</a></li>
+<li><a class="reference internal" href="#id252">Description</a></li>
+<li><a class="reference internal" href="#id253">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type">type</a><ul>
+<li><a class="reference internal" href="#id254">Name</a></li>
+<li><a class="reference internal" href="#id255">Synopsis</a></li>
+<li><a class="reference internal" href="#id256">Description</a></li>
+<li><a class="reference internal" href="#id257">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#umount">umount</a><ul>
+<li><a class="reference internal" href="#id258">Name</a></li>
+<li><a class="reference internal" href="#id259">Synopsis</a></li>
+<li><a class="reference internal" href="#id260">Description</a></li>
+<li><a class="reference internal" href="#id261">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#uniq">uniq</a><ul>
+<li><a class="reference internal" href="#id262">Name</a></li>
+<li><a class="reference internal" href="#id263">Synopsis</a></li>
+<li><a class="reference internal" href="#id264">Description</a></li>
+<li><a class="reference internal" href="#id265">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#watch">watch</a><ul>
+<li><a class="reference internal" href="#id266">Name</a></li>
+<li><a class="reference internal" href="#id267">Synopsis</a></li>
+<li><a class="reference internal" href="#id268">Description</a></li>
+<li><a class="reference internal" href="#id269">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#wc">wc</a><ul>
+<li><a class="reference internal" href="#id270">Name</a></li>
+<li><a class="reference internal" href="#id271">Synopsis</a></li>
+<li><a class="reference internal" href="#id272">Description</a></li>
+<li><a class="reference internal" href="#id273">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#wget">wget</a><ul>
+<li><a class="reference internal" href="#id274">Name</a></li>
+<li><a class="reference internal" href="#id275">Synopsis</a></li>
+<li><a class="reference internal" href="#id276">Description</a></li>
+<li><a class="reference internal" href="#frequently-used-download-options">Frequently used download options</a></li>
+<li><a class="reference internal" href="#frequently-used-directory-options">Frequently used directory options</a></li>
+<li><a class="reference internal" href="#frequently-used-http-options">Frequently used HTTP options</a></li>
+<li><a class="reference internal" href="#frequently-used-ftp-options">Frequently used FTP options</a></li>
+<li><a class="reference internal" href="#frequently-used-recursive-retrieval-options">Frequently used recursive retrieval options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#whatis">whatis</a><ul>
+<li><a class="reference internal" href="#id277">Name</a></li>
+<li><a class="reference internal" href="#id278">Synopsis</a></li>
+<li><a class="reference internal" href="#id279">Description</a></li>
+<li><a class="reference internal" href="#id280">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#whereis">whereis</a><ul>
+<li><a class="reference internal" href="#id281">Name</a></li>
+<li><a class="reference internal" href="#id282">Synopsis</a></li>
+<li><a class="reference internal" href="#id283">Description</a></li>
+<li><a class="reference internal" href="#id284">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#which">which</a><ul>
+<li><a class="reference internal" href="#id285">Name</a></li>
+<li><a class="reference internal" href="#id286">Synopsis</a></li>
+<li><a class="reference internal" href="#id287">Description</a></li>
+<li><a class="reference internal" href="#id288">Frequently used options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xargs">xargs</a><ul>
+<li><a class="reference internal" href="#id289">Name</a></li>
+<li><a class="reference internal" href="#id290">Synopsis</a></li>
+<li><a class="reference internal" href="#id291">Description</a></li>
+<li><a class="reference internal" href="#id292">Frequently used options</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="append/cl-utils.html" title="Previous Chapter: Command Line Utilities"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Command Line Uti...</span>
+    </a>
+  </li>
+  <li>
+    <a href="append/fs-layout.html" title="Next Chapter: File System Layout"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">File System Layo... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="files-and-directories">
+<span id="command-apropos"></span><h1>Files and directories<a class="headerlink" href="#files-and-directories" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="cd-change-the-current-working-directory-to-directory">
+<span id="command-cd"></span><h2>cd&nbsp;&#8211;&nbsp;Change the current working directory to <em>directory</em>.<a class="headerlink" href="#cd-change-the-current-working-directory-to-directory" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="synopsis">
+<h3>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h3>
+<p><strong>cd</strong> [options...] [directory]</p>
+</div>
+<div class="section" id="description">
+<h3>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
+<p>Change the current working directory to <em>directory</em>.</p>
+</div>
+<div class="section" id="frequently-used-options">
+<h3>Frequently used options<a class="headerlink" href="#frequently-used-options" title="Permalink to this headline">¶</a></h3>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-p</span></kbd></td>
+<td>Do not follow symbolic links</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-l</span></kbd></td>
+<td>Do follow symbolic links</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="data-manipulation">
+<h1>Data manipulation<a class="headerlink" href="#data-manipulation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="dos2unix-dos-mac-to-unix-and-vice-versa-text-file-format-converter">
+<h2>dos2unix &#8211; DOS/Mac to Unix and vice versa text file format converter<a class="headerlink" href="#dos2unix-dos-mac-to-unix-and-vice-versa-text-file-format-converter" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="apropos-search-the-whatis-database-for-strings">
+<h2>apropos&nbsp;&#8211;&nbsp;search the whatis database for strings<a class="headerlink" href="#apropos-search-the-whatis-database-for-strings" title="Permalink to this headline">¶</a></h2>
+<p><strong>apropos</strong> {keywords...}</p>
+</div>
+<div class="section" id="id1">
+<h2>Description<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>apropos searches a set of database files containing short
+descriptions of system commands for keywords and displays the
+result on the standard output.</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="bg-background">
+<span id="command-bg"></span><h1>bg &#8211;&nbsp;background<a class="headerlink" href="#bg-background" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>Synopsis<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><strong>bg</strong> [jobspec]</p>
+</div>
+<div class="section" id="id3">
+<h2>Description<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Pleace JOBSPEC in the background, as if it had been started with &amp;.
+If JOBSPEC is not present, then the shell&#8217;s notion of the
+<em>current job</em> is used, as indicated by the plus sign (+) in output
+from the <em>jobs</em> command. Using this command on a job that is
+stopped will allow it to run in the background.</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="bzip2-a-block-sorting-file-compressor">
+<span id="command-bzip2"></span><h1>bzip2&nbsp;&#8211;&nbsp;a block-sorting file compressor<a class="headerlink" href="#bzip2-a-block-sorting-file-compressor" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id4">
+<h2>Synopsis<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p><strong>bzip2</strong> [option] [filename...]</p>
+</div>
+<div class="section" id="id5">
+<h2>Description<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>bzip2 compresses files using the Burrows-Wheeler block sorting text
+compression algorithm, and Huffman coding.</p>
+</div>
+<div class="section" id="id6">
+<h2>Frequently used options<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="cat">
+<span id="command-cat"></span><h1>cat<a class="headerlink" href="#cat" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="name">
+<h2>Name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h2>
+<p>cat&nbsp;&#8211;&nbsp;concatenate files and print on the standard output</p>
+</div>
+<div class="section" id="id7">
+<h2>Synopsis<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p><strong>cat</strong> [option...] [file...]</p>
+</div>
+<div class="section" id="id8">
+<h2>Description<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>Concatenate FILE(s), or standard input, to standard output.</p>
+</div>
+<div class="section" id="id9">
+<h2>Frequently used options<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="chmod">
+<span id="command-chmod"></span><h1>chmod<a class="headerlink" href="#chmod" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id10">
+<h2>Name<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>chmod&nbsp;&#8211;&nbsp;change file access permissions</p>
+</div>
+<div class="section" id="id11">
+<h2>Synopsis<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p><strong>chmod</strong> [options...] {mode} [files...]</p>
+</div>
+<div class="section" id="id12">
+<h2>Description<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p>Change the mode of each FILE to MODE.</p>
+</div>
+<div class="section" id="id13">
+<h2>Frequently used options<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-c</span>, <span class="option">--changes</span></kbd></td>
+<td>like verbose but report only when a change is made</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-f</span>, <span class="option">--slient</span>, <span class="option">--quiet</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>suppress most error messages</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-R</span>, <span class="option">--recursive</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>change files and directories recursively</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-v</span>, <span class="option">--verbose</span></kbd></td>
+<td>output a diagnostic for every file processed</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="clear">
+<span id="command-clear"></span><h1>clear<a class="headerlink" href="#clear" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id14">
+<h2>Name<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<p>clear&nbsp;&#8211;&nbsp;clear the terminal screen</p>
+</div>
+<div class="section" id="id15">
+<h2>Synopsis<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<p><strong>clear</strong></p>
+</div>
+<div class="section" id="id16">
+<h2>Description<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<p>clear clears your screen if this is possible.</p>
+</div>
+</div>
+<div class="section" id="cmp">
+<span id="command-cmp"></span><h1>cmp<a class="headerlink" href="#cmp" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id17">
+<h2>Name<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<p>cmp&nbsp;&#8211;&nbsp; compare two files or byte ranges</p>
+</div>
+<div class="section" id="id18">
+<h2>Synopsis<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<p><strong>cmp</strong> [option...] {-I file1}</p>
+</div>
+<div class="section" id="id19">
+<h2>Description<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<p>The cmp utility compares two files of any type and writes the
+results to the standard output. By default, cmp is silent if the
+files are the same; if they differ, the byte and line number at
+which the first difference occurred is reported.</p>
+</div>
+<div class="section" id="id20">
+<h2>Frequently used options<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="comm">
+<span id="command-comm"></span><h1>comm<a class="headerlink" href="#comm" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id21">
+<h2>Name<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<p>comm&nbsp;&#8211;&nbsp;Compare two sorted files line by line</p>
+</div>
+<div class="section" id="id22">
+<h2>Synopsis<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
+<p><strong>comm</strong> [option...] {left_file} {right_file}</p>
+</div>
+<div class="section" id="id23">
+<h2>Description<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
+<p>Compare sorted files LEFT_FILE and RIGHT_FILE line by line.</p>
+</div>
+<div class="section" id="id24">
+<h2>Frequently used options<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="cp-copy-files-and-directories">
+<span id="command-cp"></span><h1>cp&nbsp;&#8211;&nbsp;copy files and directories<a class="headerlink" href="#cp-copy-files-and-directories" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id25">
+<h2>Synopsis<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">cp [OPTION]... [-T] SOURCE DEST</div>
+<div class="line">cp [OPTION]... SOURCE... DIRECTORY</div>
+<div class="line">cp [OPTION]... -t DIRECTORY SOURCE...</div>
+</div>
+</div>
+<div class="section" id="id26">
+<h2>Description<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h2>
+<p>Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.</p>
+</div>
+<div class="section" id="id27">
+<h2>Frequently used options<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-a</span>, <span class="option">--archive</span></kbd></td>
+<td>same as -dpR</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-d</span></kbd></td>
+<td>same as &#8211;no-dereference &#8211;preserve=link</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-p</span></kbd></td>
+<td>same as &#8211;preserve=mode,ownership,timestamps</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r</span></kbd></td>
+<td>copy recursively, non-directories as files WARNING: use -R instead
+when you might copy special files like FIFOs or /dev/zero</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-i</span>, <span class="option">--interactive</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>prompt before overwrite</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-R</span>, <span class="option">--recursive</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>copy directories recursively</td></tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="date">
+<span id="command-date"></span><h1>date<a class="headerlink" href="#date" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id28">
+<h2>Name<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h2>
+<p>date&nbsp;&#8211;&nbsp;print or set the system date and time</p>
+</div>
+<div class="section" id="id29">
+<h2>Synopsis<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h2>
+<p><strong>date</strong> [option...] [+format]</p>
+</div>
+<div class="section" id="id30">
+<h2>Description<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h2>
+<p>Display the current time in the given FORMAT, or set the system
+date.</p>
+</div>
+<div class="section" id="id31">
+<h2>Frequently used options<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="df">
+<span id="command-df"></span><h1>df<a class="headerlink" href="#df" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id32">
+<h2>Name<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h2>
+<p>df&nbsp;&#8211;&nbsp;report filesystem disk space usage</p>
+</div>
+<div class="section" id="id33">
+<h2>Synopsis<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h2>
+<p><strong>df</strong> [option...] [file...]</p>
+</div>
+<div class="section" id="id34">
+<h2>Description<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h2>
+<p>df displays the amount of disk space available on the filesystem
+containing each file name argument.</p>
+</div>
+<div class="section" id="id35">
+<h2>Frequently used options<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-h</span>, <span class="option">--human-readable</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>print sizes in human readable format (e.g., 1K 234M 2G)</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="diff3">
+<span id="command-diff3"></span><h1>diff3<a class="headerlink" href="#diff3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id36">
+<h2>Name<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h2>
+<p>diff3&nbsp;&#8211;&nbsp;find differences between three files</p>
+</div>
+<div class="section" id="id37">
+<h2>Synopsis<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h2>
+<p><strong>diff3</strong> [option...] {mine} {older} {yours}</p>
+</div>
+<div class="section" id="id38">
+<h2>Description<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h2>
+<p>The diff3 command compares three files and outputs descriptions of
+their differences.</p>
+</div>
+<div class="section" id="id39">
+<h2>Frequently used options<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="diff">
+<span id="command-diff"></span><h1>diff<a class="headerlink" href="#diff" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id40">
+<h2>Name<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h2>
+<p>diff&nbsp;&#8211;&nbsp;find differences between two files</p>
+</div>
+<div class="section" id="id41">
+<h2>Synopsis<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h2>
+<p><strong>diff</strong> [option...] {from-file} {to-file}</p>
+</div>
+<div class="section" id="id42">
+<h2>Description<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h2>
+<p>Concatenate FILE(s), or standard input, to standard output.</p>
+</div>
+<div class="section" id="id43">
+<h2>Frequently used options<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="dirs">
+<span id="command-dirs"></span><h1>dirs<a class="headerlink" href="#dirs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id44">
+<h2>Name<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h2>
+<p>dirs&nbsp;&#8211;&nbsp;Display the list of currently remembered directories.</p>
+</div>
+<div class="section" id="id45">
+<h2>Synopsis<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h2>
+<p><strong>dirs</strong> [options...]</p>
+</div>
+<div class="section" id="id46">
+<h2>Description<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h2>
+<p>Display the list of currently remembered directories. Directories
+are added to the list with the pushd command; the popd command
+removes directories from the list.</p>
+</div>
+<div class="section" id="id47">
+<h2>Frequently used options<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><table class="first docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">+N</span></kbd></td>
+<td><p class="first last">Displays the Nth directory (counting from the left of the list
+printed by dirs when invoked without options), starting with zero.</p>
+</td></tr>
+</tbody>
+</table>
+</li>
+<li><table class="first docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-N</span></kbd></td>
+<td><p class="first last">Displays the Nth directory (counting from the right of the list
+printed by dirs when invoked without options), starting with zero.</p>
+</td></tr>
+</tbody>
+</table>
+</li>
+</ul>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-c</span></kbd></td>
+<td>Clears the directory stack by deleting all of the elements.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-l</span></kbd></td>
+<td>Produces a longer listing; the default listing format uses a tilde
+to denote the home directory.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-p</span></kbd></td>
+<td>Causes dirs to print the directory stack with one entry per line.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-v</span></kbd></td>
+<td>Causes dirs to print the directory stack with one entry per line,
+prefixing each entry with its index in the stack.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="du">
+<span id="command-du"></span><h1>du<a class="headerlink" href="#du" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id48">
+<h2>Name<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h2>
+<p>du&nbsp;&#8211;&nbsp; estimate file space usage</p>
+</div>
+<div class="section" id="id49">
+<h2>Synopsis<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h2>
+<p><strong>du</strong> [option...] [file...]</p>
+</div>
+<div class="section" id="id50">
+<h2>Description<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h2>
+<p>Summarize disk usage of each FILE, recursively for directories.</p>
+</div>
+<div class="section" id="id51">
+<h2>Frequently used options<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-s</span>, <span class="option">--summarize</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>display only a total for each argument</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-h</span>, <span class="option">--human-readable</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>print sizes in human readable format (e.g., 1K 234M 2G)</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="echo">
+<span id="command-echo"></span><h1>echo<a class="headerlink" href="#echo" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id52">
+<h2>Name<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h2>
+<p>echo&nbsp;&#8211;&nbsp;display a line of text</p>
+</div>
+<div class="section" id="id53">
+<h2>Synopsis<a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h2>
+<p><strong>echo</strong> [options...] [strings...]</p>
+</div>
+<div class="section" id="id54">
+<h2>Description<a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h2>
+<p>Echo the STRING(s) to standard output.</p>
+</div>
+<div class="section" id="id55">
+<h2>Frequently used options<a class="headerlink" href="#id55" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="fg">
+<span id="command-fg"></span><h1>fg<a class="headerlink" href="#fg" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id56">
+<h2>Name<a class="headerlink" href="#id56" title="Permalink to this headline">¶</a></h2>
+<p>fg&nbsp;&#8211;&nbsp;foreground</p>
+</div>
+<div class="section" id="id57">
+<h2>Synopsis<a class="headerlink" href="#id57" title="Permalink to this headline">¶</a></h2>
+<p><strong>fg</strong> [jobspec]</p>
+</div>
+<div class="section" id="id58">
+<h2>Description<a class="headerlink" href="#id58" title="Permalink to this headline">¶</a></h2>
+<p>This command places the specified job in the foreground, making it
+the current job. If JOBSPEC is not present, then the shell&#8217;s notion
+of the current job is used.</p>
+</div>
+</div>
+<div class="section" id="file">
+<span id="command-file"></span><h1>file<a class="headerlink" href="#file" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id59">
+<h2>Name<a class="headerlink" href="#id59" title="Permalink to this headline">¶</a></h2>
+<p>file&nbsp;&#8211;&nbsp; determine file type</p>
+</div>
+<div class="section" id="id60">
+<h2>Synopsis<a class="headerlink" href="#id60" title="Permalink to this headline">¶</a></h2>
+<p><strong>file</strong> [option...] {file}</p>
+</div>
+<div class="section" id="id61">
+<h2>Description<a class="headerlink" href="#id61" title="Permalink to this headline">¶</a></h2>
+<p>File tests each argument in an attempt to classify it. There are
+three sets of tests, performed in this order: filesystem tests,
+magic number tests, and language tests. The first test that
+succeeds causes the file type to be printed.</p>
+</div>
+<div class="section" id="id62">
+<h2>Frequently used options<a class="headerlink" href="#id62" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="find">
+<span id="command-find"></span><h1>find<a class="headerlink" href="#find" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id63">
+<h2>Name<a class="headerlink" href="#id63" title="Permalink to this headline">¶</a></h2>
+<p>find&nbsp;&#8211;&nbsp; search for files in a directory hierarchy</p>
+</div>
+<div class="section" id="id64">
+<h2>Synopsis<a class="headerlink" href="#id64" title="Permalink to this headline">¶</a></h2>
+<p><strong>find</strong> [path...] [expression]</p>
+</div>
+<div class="section" id="id65">
+<h2>Description<a class="headerlink" href="#id65" title="Permalink to this headline">¶</a></h2>
+<p>find searches the directory tree rooted at each given file name by
+evaluating the given expression from left to right, according to
+the rules of precedence (see section OPERATORS), until the outcome
+is known (the left hand side is false for and operations, true for
+or), at which point find moves on to the next file name.</p>
+</div>
+<div class="section" id="expressions">
+<h2>Expressions<a class="headerlink" href="#expressions" title="Permalink to this headline">¶</a></h2>
+<p>The expression is made up of options (which affect overall
+operation rather than the processing of a specific file, and always
+return true), tests (which return a true or false value), and
+actions (which have side effects and return a true or false value),
+all separated by operators. -and is assumed where the operator is
+omitted. If the expression contains no actions other than -prune,
+-print is performed on all files for which the expression is true.</p>
+</div>
+<div class="section" id="id66">
+<h2>Frequently used options<a class="headerlink" href="#id66" title="Permalink to this headline">¶</a></h2>
+<p>It is best to place options at the beginning of the expression.</p>
+<dl class="docutils">
+<dt>-mindepth levels</dt>
+<dd>Do not apply any tests or actions at levels less than levels (a
+non-negative integer).</dd>
+<dt>-maxdepth levels</dt>
+<dd>Descend at most levels (a non-negative integer) levels of
+directories below the command line arguments.</dd>
+</dl>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-f<var>ollow</var></span></kbd></td>
+<td>Dereference symbolic links. Implies -noleaf.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="frequently-used-tests">
+<h2>Frequently used tests<a class="headerlink" href="#frequently-used-tests" title="Permalink to this headline">¶</a></h2>
+<p>Numeric arguments can be specified as:</p>
+<p>+n for greater than n</p>
+<p>-n for less than n</p>
+<p>n for exactly n</p>
+<dl class="docutils">
+<dt>-type c</dt>
+<dd><p class="first">File is of type c:</p>
+<div class="last highlight-python"><pre>b      block (buffered) special
+
+c      character (unbuffered) special
+
+d      directory
+
+p      named pipe (FIFO)
+
+f      regular file
+
+l      symbolic link</pre>
+</div>
+</dd>
+<dt>-name pattern</dt>
+<dd>Base of file name (the path with the leading directories removed)
+matches shell pattern pattern.</dd>
+<dt>-atime n</dt>
+<dd>File was last accessed n*24 hours ago.</dd>
+<dt>-amin n</dt>
+<dd>File was last accessed n minutes ago.</dd>
+<dt>-anewer file</dt>
+<dd>File was last accessed more recently than file was modified.</dd>
+<dt>-ctime n</dt>
+<dd>File&#8217;s status was last changed n*24 hours ago.</dd>
+<dt>-cmin n</dt>
+<dd>File&#8217;s status was last changed n minutes ago.</dd>
+</dl>
+</div>
+<div class="section" id="frequently-used-actions">
+<h2>Frequently used actions<a class="headerlink" href="#frequently-used-actions" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-p<var>rint</var></span></kbd></td>
+<td>print the full file name on the standard output, followed by a
+newline.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-l<var>s</var></span></kbd></td>
+<td>list current file in `ls -dils&#8217; format on standard output.</td></tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>-exec command</dt>
+<dd>Execute command; true if 0 status is returned. All following
+arguments to find are taken to be arguments to the command until an
+argument consisting of `;&#8217; is encountered.</dd>
+<dt>-ok command</dt>
+<dd>Like -exec but ask the user first</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="free">
+<span id="command-free"></span><h1>free<a class="headerlink" href="#free" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id67">
+<h2>Name<a class="headerlink" href="#id67" title="Permalink to this headline">¶</a></h2>
+<p>free&nbsp;&#8211;&nbsp; Display amount of free and used memory in the system</p>
+</div>
+<div class="section" id="id68">
+<h2>Synopsis<a class="headerlink" href="#id68" title="Permalink to this headline">¶</a></h2>
+<p><strong>free</strong> [option]</p>
+</div>
+<div class="section" id="id69">
+<h2>Description<a class="headerlink" href="#id69" title="Permalink to this headline">¶</a></h2>
+<p>free displays the total amount of free and used physical and swap
+memory in the system, as well as the shared memory and buffers used
+by the kernel.</p>
+</div>
+<div class="section" id="id70">
+<h2>Frequently used options<a class="headerlink" href="#id70" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-s</span></kbd></td>
+<td>activates continuous polling delay seconds apart.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="ftp">
+<span id="command-ftp"></span><h1>ftp<a class="headerlink" href="#ftp" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id71">
+<h2>Name<a class="headerlink" href="#id71" title="Permalink to this headline">¶</a></h2>
+<p>ftp&nbsp;&#8211;&nbsp;ARPANET file transfer program</p>
+</div>
+<div class="section" id="id72">
+<h2>Synopsis<a class="headerlink" href="#id72" title="Permalink to this headline">¶</a></h2>
+<p><strong>ftp</strong> [option]</p>
+</div>
+<div class="section" id="id73">
+<h2>Description<a class="headerlink" href="#id73" title="Permalink to this headline">¶</a></h2>
+<p>FTP is the user interface to the ARPANET standard File Transfer
+Protocol. The program allows a user to transfer files to and from a
+remote network site.</p>
+</div>
+<div class="section" id="id74">
+<h2>Frequently used options<a class="headerlink" href="#id74" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-i</span></kbd></td>
+<td>Turns off interactive prompting during multiple file transfers.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="frequently-used-commands">
+<h2>Frequently used commands<a class="headerlink" href="#frequently-used-commands" title="Permalink to this headline">¶</a></h2>
+<p>The client host with which ftp is to communicate may be specified
+on the command line. If this is done, ftp will immediately
+attempt to establish a connection to an FTP server on that host;
+otherwise, ftp will enter its command interpreter and await
+instructions from the user. When ftp is awaiting commands from
+the user the prompt ``ftp&gt;&#8217;&#8217; is provided to the user. The
+following commands are recognized by ftp:</p>
+<dl class="docutils">
+<dt>-cd REMOTE-DIRECTORY</dt>
+<dd>Change the working directory on the remote machine to
+REMOTE-DIRECTORY.</dd>
+<dt>-delete REMOTE-FILE</dt>
+<dd>Delete the file REMOTE-FILE on the remote machine.</dd>
+<dt>-get REMOTE-FILE [LOCAL-FILE]</dt>
+<dd>Retrieve the file remote-file and store it on the local machine.</dd>
+</dl>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-g<var>lob</var></span></kbd></td>
+<td>Toggle filename expansion for mdelete, mget, and mput.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-h<var>ash</var></span></kbd></td>
+<td>Toggle hash-sign (``#&#8217;&#8216;) printing for each data block
+transferred. The size of a data block is 1024 bytes.</td></tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>-ls [REMOTE-DIRECTORY] [LOCAL-FILE]</dt>
+<dd>Print a listing of the contents of a directory on the remote
+machine.</dd>
+<dt>-mdelete [REMOTE-FILES]</dt>
+<dd>Delete REMOTE-FILES on the remote machine.</dd>
+<dt>-mget REMOTE-FILES</dt>
+<dd>Expand the REMOTE-FILES on the remote machine and do a get for each
+file name thus produced.</dd>
+<dt>-mput LOCAL-FILES</dt>
+<dd>Expand the REMOTE-FILES on the remote machine and do a get for each
+file name thus produced.</dd>
+</dl>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-p<var>assive</var></span></kbd></td>
+<td>Toggle passive data transfer mode off.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-p<var>rompt</var></span></kbd></td>
+<td>Toggle interactive prompting.</td></tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>-put LOCAL-FILE [REMOTE-FILE]</dt>
+<dd>Store a local file on the remote machine.</dd>
+</dl>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-p<var>wd</var></span></kbd></td>
+<td>Print the name of the current working directory on the remote
+machine.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-q<var>uit</var></span></kbd></td>
+<td>A synonym for bye.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="grep">
+<span id="command-grep"></span><h1>grep<a class="headerlink" href="#grep" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id75">
+<h2>Name<a class="headerlink" href="#id75" title="Permalink to this headline">¶</a></h2>
+<p>grep&nbsp;&#8211;&nbsp;print lines matching a pattern</p>
+</div>
+<div class="section" id="id76">
+<h2>Synopsis<a class="headerlink" href="#id76" title="Permalink to this headline">¶</a></h2>
+<p><strong>grep</strong> [options] {pattern} [file...]</p>
+</div>
+<div class="section" id="id77">
+<h2>Description<a class="headerlink" href="#id77" title="Permalink to this headline">¶</a></h2>
+<p>grep searches the named input <em>file</em> (or standard input if no files
+are named, or the file name - is given) for lines containing a
+match to the given <em>pattern</em>. By default, grep prints the matching
+lines.</p>
+</div>
+<div class="section" id="id78">
+<h2>Frequently used options<a class="headerlink" href="#id78" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-c <var>NUM</var></span>, <span class="option">--context=<var>NUM</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Print NUM lines of output context. Places a line containing &#8211;
+between contiguous groups of matches.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-h</span>, <span class="option">--no-filename</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Suppress the prefixing of filenames on output when multiple files
+are searched.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-i</span>, <span class="option">--ignore-case</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Ignore case distinctions in both the <em>pattern</em> and the input
+files.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-n</span>, <span class="option">--line-number</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Prefix each line of output with the line number within its input
+file.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-v</span>, <span class="option">--invert-match</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Invert the sense of matching, to select non-matching lines.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="gunzip">
+<span id="command-gunzip"></span><h1>gunzip<a class="headerlink" href="#gunzip" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id79">
+<h2>Name<a class="headerlink" href="#id79" title="Permalink to this headline">¶</a></h2>
+<p>gunzip&nbsp;&#8211;&nbsp; compress or expand files</p>
+</div>
+<div class="section" id="id80">
+<h2>Synopsis<a class="headerlink" href="#id80" title="Permalink to this headline">¶</a></h2>
+<p><strong>gunzip</strong> [option]</p>
+</div>
+<div class="section" id="id81">
+<h2>Description<a class="headerlink" href="#id81" title="Permalink to this headline">¶</a></h2>
+<p>gunzip takes a list of files on its command line and replaces each
+file whose name ends with .gz, -gz, .z, -z, _z or .Z and which
+begins with the correct magic number with an uncompressed file
+without the original extension. gunzip can currently decompress
+files created by gzip, zip, compress, compress -H or pack.</p>
+</div>
+<div class="section" id="id82">
+<h2>Frequently used options<a class="headerlink" href="#id82" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="gzip">
+<span id="command-gzip"></span><h1>gzip<a class="headerlink" href="#gzip" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id83">
+<h2>Name<a class="headerlink" href="#id83" title="Permalink to this headline">¶</a></h2>
+<p>gzip&nbsp;&#8211;&nbsp; compress or expand files</p>
+</div>
+<div class="section" id="id84">
+<h2>Synopsis<a class="headerlink" href="#id84" title="Permalink to this headline">¶</a></h2>
+<p><strong>gzip</strong> [option]</p>
+</div>
+<div class="section" id="id85">
+<h2>Description<a class="headerlink" href="#id85" title="Permalink to this headline">¶</a></h2>
+<p>Gzip reduces the size of the named files using Lempel-Ziv coding
+(LZ77). Whenever possible, each file is replaced by one with the
+extension .gz, while keeping the same ownership modes, access and
+modification times.</p>
+</div>
+<div class="section" id="id86">
+<h2>Frequently used options<a class="headerlink" href="#id86" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-d</span>, <span class="option">--decompress</span>, <span class="option">--uncompress</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Decompress</td></tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>-#, &#8211;fast, &#8211;best</dt>
+<dd>Regulate the speed of compression using the specified digit #,
+where -1 or &#8211;fast indicates the fastest compression method (less
+compression) and -9 or &#8211;best indicates the slowest compression
+method (best compression). The default compression level is -6
+(that is, biased towards high compression at expense of speed).</dd>
+</dl>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-c</span>, <span class="option">--stdout</span>, <span class="option">--to-stdout</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Write output on standard output; keep original files unchanged. If
+there are several input files, the output consists of a sequence of
+independently compressed members. To obtain better compression,
+concatenate all input files before compressing them.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="head">
+<span id="command-head"></span><h1>head<a class="headerlink" href="#head" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id87">
+<h2>Name<a class="headerlink" href="#id87" title="Permalink to this headline">¶</a></h2>
+<p>head&nbsp;&#8211;&nbsp;output the first part of files</p>
+</div>
+<div class="section" id="id88">
+<h2>Synopsis<a class="headerlink" href="#id88" title="Permalink to this headline">¶</a></h2>
+<p><strong>diff</strong> [option...] [file...]</p>
+</div>
+<div class="section" id="id89">
+<h2>Description<a class="headerlink" href="#id89" title="Permalink to this headline">¶</a></h2>
+<p>Print first 10 lines of each FILE to standard output. With more
+than one FILE, precede each with a header giving the file name.
+With no FILE, or when FILE is -, read standard input.</p>
+</div>
+<div class="section" id="id90">
+<h2>Frequently used options<a class="headerlink" href="#id90" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-n</span>, <span class="option">--lines=<var>NUMBER</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>print first NUMBER lines instead of first 10</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="history">
+<span id="command-history"></span><h1>history<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id91">
+<h2>Name<a class="headerlink" href="#id91" title="Permalink to this headline">¶</a></h2>
+<p>history&nbsp;&#8211;&nbsp;lists the history of entered commands</p>
+</div>
+<div class="section" id="id92">
+<h2>Synopsis<a class="headerlink" href="#id92" title="Permalink to this headline">¶</a></h2>
+<p><strong>history</strong> [options...] [files...]</p>
+</div>
+<div class="section" id="id93">
+<h2>Description<a class="headerlink" href="#id93" title="Permalink to this headline">¶</a></h2>
+<p>display a list of commands entered in the shell</p>
+</div>
+<div class="section" id="id94">
+<h2>Frequently used options<a class="headerlink" href="#id94" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="jobs">
+<span id="command-jobs"></span><h1>jobs<a class="headerlink" href="#jobs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id95">
+<h2>Name<a class="headerlink" href="#id95" title="Permalink to this headline">¶</a></h2>
+<p>jobs&nbsp;&#8211;&nbsp;list the active jobs</p>
+</div>
+<div class="section" id="id96">
+<h2>Synopsis<a class="headerlink" href="#id96" title="Permalink to this headline">¶</a></h2>
+<p><strong>jobs</strong> [option...] [jobspec...]</p>
+</div>
+<div class="section" id="id97">
+<h2>Description<a class="headerlink" href="#id97" title="Permalink to this headline">¶</a></h2>
+<p>List the active jobs. If JOBSPECS are included, output is
+restricted to information about those jobs.</p>
+</div>
+<div class="section" id="id98">
+<h2>Frequently used options<a class="headerlink" href="#id98" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-l</span></kbd></td>
+<td>Also list PIDs</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="killall">
+<span id="command-killall"></span><h1>killall<a class="headerlink" href="#killall" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id99">
+<h2>Name<a class="headerlink" href="#id99" title="Permalink to this headline">¶</a></h2>
+<p>killall&nbsp;&#8211;&nbsp; kill processes by name</p>
+</div>
+<div class="section" id="id100">
+<h2>Synopsis<a class="headerlink" href="#id100" title="Permalink to this headline">¶</a></h2>
+<p><strong>killall</strong> [option]</p>
+</div>
+<div class="section" id="id101">
+<h2>Description<a class="headerlink" href="#id101" title="Permalink to this headline">¶</a></h2>
+<p>killall sends a signal to all processes running any of the
+specified commands. If no signal name is specified, SIGTERM is
+sent.</p>
+</div>
+<div class="section" id="id102">
+<h2>Frequently used options<a class="headerlink" href="#id102" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="kill">
+<span id="command-kill"></span><h1>kill<a class="headerlink" href="#kill" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id103">
+<h2>Name<a class="headerlink" href="#id103" title="Permalink to this headline">¶</a></h2>
+<p>kill&nbsp;&#8211;&nbsp;terminate a process</p>
+</div>
+<div class="section" id="id104">
+<h2>Synopsis<a class="headerlink" href="#id104" title="Permalink to this headline">¶</a></h2>
+<p><strong>kill</strong> [option]</p>
+</div>
+<div class="section" id="id105">
+<h2>Description<a class="headerlink" href="#id105" title="Permalink to this headline">¶</a></h2>
+<p>The command kill sends the specified signal to the specified
+process or process group. If no signal is specified, the TERM
+signal is sent. The TERM signal will kill processes which do not
+catch this signal.</p>
+</div>
+<div class="section" id="id106">
+<h2>Frequently used options<a class="headerlink" href="#id106" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="less">
+<span id="command-less"></span><h1>less<a class="headerlink" href="#less" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id107">
+<h2>Name<a class="headerlink" href="#id107" title="Permalink to this headline">¶</a></h2>
+<p>less&nbsp;&#8211;&nbsp;opposite of more</p>
+</div>
+<div class="section" id="id108">
+<h2>Synopsis<a class="headerlink" href="#id108" title="Permalink to this headline">¶</a></h2>
+<p><strong>less</strong> [file...]</p>
+</div>
+<div class="section" id="id109">
+<h2>Description<a class="headerlink" href="#id109" title="Permalink to this headline">¶</a></h2>
+<p>Less is a program similar to more, but which allows backward
+movement in the file as well as forward movement. Also, less does
+not have to read the entire input file before starting, so with
+large input files it starts up faster than text editors like vi.</p>
+</div>
+<div class="section" id="id110">
+<h2>Frequently used options<a class="headerlink" href="#id110" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="ln">
+<span id="command-ln"></span><h1>ln<a class="headerlink" href="#ln" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id111">
+<h2>Name<a class="headerlink" href="#id111" title="Permalink to this headline">¶</a></h2>
+<p>ln&nbsp;&#8211;&nbsp;make links between files</p>
+</div>
+<div class="section" id="id112">
+<h2>Synopsis<a class="headerlink" href="#id112" title="Permalink to this headline">¶</a></h2>
+<p><strong>ln</strong> [options...] {target...} [link_name]</p>
+</div>
+<div class="section" id="id113">
+<h2>Description<a class="headerlink" href="#id113" title="Permalink to this headline">¶</a></h2>
+<p>Create a link to the specified TARGET with optional LINK_NAME. If
+LINK_NAME is omitted, a link with the same basename as the TARGET
+is created in the current directory. When using the second form
+with more than one TARGET, the last argument must be a directory;
+create links in DIRECTORY to each TARGET. Create hard links by
+default, symbolic links with &#8211;symbolic. When creating hard links,
+each TARGET must exist.</p>
+</div>
+<div class="section" id="id114">
+<h2>Frequently used options<a class="headerlink" href="#id114" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-i</span>, <span class="option">--interactive</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>prompt whether to remove destinations</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-f</span>, <span class="option">--force</span></kbd></td>
+<td>remove existing destination files</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-s</span>, <span class="option">--symbolic</span></kbd></td>
+<td>make symbolic links instead of hard links</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="ls">
+<span id="command-ls"></span><h1>ls<a class="headerlink" href="#ls" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id115">
+<h2>Name<a class="headerlink" href="#id115" title="Permalink to this headline">¶</a></h2>
+<p>ls&nbsp;&#8211;&nbsp;list directory contents</p>
+</div>
+<div class="section" id="id116">
+<h2>Synopsis<a class="headerlink" href="#id116" title="Permalink to this headline">¶</a></h2>
+<p><strong>ls</strong> [options...] [files...]</p>
+</div>
+<div class="section" id="id117">
+<h2>Description<a class="headerlink" href="#id117" title="Permalink to this headline">¶</a></h2>
+<p>For each file that is a directory, <strong>ls</strong> lists the contents of the
+directory; for each file that is an ordinary file, <strong>ls</strong> repeats
+its name and any other information requested.</p>
+</div>
+<div class="section" id="id118">
+<h2>Frequently used options<a class="headerlink" href="#id118" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-a</span>, <span class="option">--al</span></kbd></td>
+<td>do not hide entries starting with .</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-l</span></kbd></td>
+<td>use a long listing format</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="mail">
+<span id="command-mail"></span><h1>mail<a class="headerlink" href="#mail" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id119">
+<h2>Name<a class="headerlink" href="#id119" title="Permalink to this headline">¶</a></h2>
+<p>mail&nbsp;&#8211;&nbsp;send and receive mail</p>
+</div>
+<div class="section" id="id120">
+<h2>Synopsis<a class="headerlink" href="#id120" title="Permalink to this headline">¶</a></h2>
+<p><strong>mail</strong> [option...] {to-addr...}</p>
+</div>
+<div class="section" id="id121">
+<h2>Description<a class="headerlink" href="#id121" title="Permalink to this headline">¶</a></h2>
+<p>Mail is an intelligent mail processing system, which has a command
+syntax reminiscent of ed(1) with lines replaced by messages.</p>
+</div>
+<div class="section" id="id122">
+<h2>Frequently used options<a class="headerlink" href="#id122" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="man">
+<span id="command-man"></span><h1>man<a class="headerlink" href="#man" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id123">
+<h2>Name<a class="headerlink" href="#id123" title="Permalink to this headline">¶</a></h2>
+<p>man&nbsp;&#8211;&nbsp;format and display the on-line manual pages</p>
+</div>
+<div class="section" id="id124">
+<h2>Synopsis<a class="headerlink" href="#id124" title="Permalink to this headline">¶</a></h2>
+<p><strong>man</strong> {keyword...} {name}</p>
+</div>
+<div class="section" id="id125">
+<h2>Description<a class="headerlink" href="#id125" title="Permalink to this headline">¶</a></h2>
+<p>man formats and displays the on-line manual pages.</p>
+</div>
+<div class="section" id="id126">
+<h2>Frequently used options<a class="headerlink" href="#id126" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="more">
+<span id="command-more"></span><h1>more<a class="headerlink" href="#more" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id127">
+<h2>Name<a class="headerlink" href="#id127" title="Permalink to this headline">¶</a></h2>
+<p>more&nbsp;&#8211;&nbsp; file perusal filter for crt viewing</p>
+</div>
+<div class="section" id="id128">
+<h2>Synopsis<a class="headerlink" href="#id128" title="Permalink to this headline">¶</a></h2>
+<p><strong>more</strong> [file...]</p>
+</div>
+<div class="section" id="id129">
+<h2>Description<a class="headerlink" href="#id129" title="Permalink to this headline">¶</a></h2>
+<p>More is a filter for paging through text one screenful at a time.
+This version is especially primitve. Users should realize that less
+provides more emulation and extensive enhancements.</p>
+</div>
+<div class="section" id="id130">
+<h2>Frequently used options<a class="headerlink" href="#id130" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="mount">
+<span id="command-mount"></span><h1>mount<a class="headerlink" href="#mount" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id131">
+<h2>Name<a class="headerlink" href="#id131" title="Permalink to this headline">¶</a></h2>
+<p>mount&nbsp;&#8211;&nbsp;mount a file system</p>
+</div>
+<div class="section" id="id132">
+<h2>Synopsis<a class="headerlink" href="#id132" title="Permalink to this headline">¶</a></h2>
+<p><strong>mount</strong> [dir]</p>
+</div>
+<div class="section" id="id133">
+<h2>Description<a class="headerlink" href="#id133" title="Permalink to this headline">¶</a></h2>
+<p>All files accessible in a Unix system are arranged in one big tree,
+the file hierarchy, rooted at /. These files can be spread out over
+several devices. The mount command serves to attach the file system
+found on some device to the big file tree.</p>
+</div>
+<div class="section" id="id134">
+<h2>Frequently used options<a class="headerlink" href="#id134" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="mv">
+<span id="command-mv"></span><h1>mv<a class="headerlink" href="#mv" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id135">
+<h2>Name<a class="headerlink" href="#id135" title="Permalink to this headline">¶</a></h2>
+<p>mv&nbsp;&#8211;&nbsp;move (rename) files</p>
+</div>
+<div class="section" id="id136">
+<h2>Synopsis<a class="headerlink" href="#id136" title="Permalink to this headline">¶</a></h2>
+<p><strong>mv</strong> [options...] {source} {dest}</p>
+</div>
+<div class="section" id="id137">
+<h2>Description<a class="headerlink" href="#id137" title="Permalink to this headline">¶</a></h2>
+<p>Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.</p>
+</div>
+<div class="section" id="id138">
+<h2>Frequently used options<a class="headerlink" href="#id138" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-f</span>, <span class="option">--force</span></kbd></td>
+<td>do not prompt before overwriting equivalent to &#8211;reply=yes</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-i</span>, <span class="option">--interactive</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>prompt before overwrite equivalent to &#8211;reply=query</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-v</span>, <span class="option">--verbose</span></kbd></td>
+<td>explain what is being done</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="nohup">
+<span id="command-nohup"></span><h1>nohup<a class="headerlink" href="#nohup" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id139">
+<h2>Name<a class="headerlink" href="#id139" title="Permalink to this headline">¶</a></h2>
+<p>nohup&nbsp;&#8211;&nbsp;Run a command immune to hangups, with output to a non-tty</p>
+</div>
+<div class="section" id="id140">
+<h2>Synopsis<a class="headerlink" href="#id140" title="Permalink to this headline">¶</a></h2>
+<p><strong>nohup</strong> {command} [arg...]</p>
+</div>
+<div class="section" id="id141">
+<h2>Description<a class="headerlink" href="#id141" title="Permalink to this headline">¶</a></h2>
+<p>Run COMMAND, ignoring hangup signals.</p>
+</div>
+<div class="section" id="id142">
+<h2>Frequently used options<a class="headerlink" href="#id142" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="paste">
+<span id="command-paste"></span><h1>paste<a class="headerlink" href="#paste" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id143">
+<h2>Name<a class="headerlink" href="#id143" title="Permalink to this headline">¶</a></h2>
+<p>paste&nbsp;&#8211;&nbsp;merge lines of files</p>
+</div>
+<div class="section" id="id144">
+<h2>Synopsis<a class="headerlink" href="#id144" title="Permalink to this headline">¶</a></h2>
+<p><strong>paste</strong> [option...] [file...]</p>
+</div>
+<div class="section" id="id145">
+<h2>Description<a class="headerlink" href="#id145" title="Permalink to this headline">¶</a></h2>
+<p>Write lines consisting of the sequentially corresponding lines from
+each FILE, separated by TABs, to standard output. With no FILE, or
+when FILE is -, read standard input.</p>
+</div>
+<div class="section" id="id146">
+<h2>Frequently used options<a class="headerlink" href="#id146" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-s</span>, <span class="option">--serial</span></kbd></td>
+<td>paste one file at a time instead of in parallel</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="pine">
+<span id="command-pine"></span><h1>pine<a class="headerlink" href="#pine" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id147">
+<h2>Name<a class="headerlink" href="#id147" title="Permalink to this headline">¶</a></h2>
+<p>pine&nbsp;&#8211;&nbsp;a Program for Internet News and Email</p>
+</div>
+<div class="section" id="id148">
+<h2>Synopsis<a class="headerlink" href="#id148" title="Permalink to this headline">¶</a></h2>
+<p><strong>pine</strong> [option...] [address]</p>
+</div>
+<div class="section" id="id149">
+<h2>Description<a class="headerlink" href="#id149" title="Permalink to this headline">¶</a></h2>
+<p>Pine is a screen-oriented message-handling tool.</p>
+</div>
+<div class="section" id="id150">
+<h2>Frequently used options<a class="headerlink" href="#id150" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="popd">
+<span id="command-popd"></span><h1>popd<a class="headerlink" href="#popd" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id151">
+<h2>Name<a class="headerlink" href="#id151" title="Permalink to this headline">¶</a></h2>
+<p>popd&nbsp;&#8211;&nbsp; Remove the top entry from the directory stack, and cd to
+the new top directory.</p>
+</div>
+<div class="section" id="id152">
+<h2>Synopsis<a class="headerlink" href="#id152" title="Permalink to this headline">¶</a></h2>
+<p><strong>popd</strong> [option...]</p>
+</div>
+<div class="section" id="id153">
+<h2>Description<a class="headerlink" href="#id153" title="Permalink to this headline">¶</a></h2>
+<p>Remove the top entry from the directory stack, and cd to the new
+top directory. When no arguments are given, popd removes the top
+directory from the stack and performs a cd to the new top
+directory.</p>
+</div>
+<div class="section" id="id154">
+<h2>Frequently used options<a class="headerlink" href="#id154" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><table class="first docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">+N</span></kbd></td>
+<td><p class="first last">Removes the Nth directory (counting from the left of the list
+printed by dirs), starting with zero.</p>
+</td></tr>
+</tbody>
+</table>
+</li>
+<li><table class="first docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-N</span></kbd></td>
+<td><p class="first last">Removes the Nth directory (counting from the right of the list
+printed by dirs), starting with zero.</p>
+</td></tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="ps">
+<span id="command-ps"></span><h1>ps<a class="headerlink" href="#ps" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id155">
+<h2>Name<a class="headerlink" href="#id155" title="Permalink to this headline">¶</a></h2>
+<p>ps&nbsp;&#8211;&nbsp; report process status</p>
+</div>
+<div class="section" id="id156">
+<h2>Synopsis<a class="headerlink" href="#id156" title="Permalink to this headline">¶</a></h2>
+<p><strong>ps</strong> [option]</p>
+</div>
+<div class="section" id="id157">
+<h2>Description<a class="headerlink" href="#id157" title="Permalink to this headline">¶</a></h2>
+<p>ps gives a snapshot of the current processes. If you want a
+repetitive update of this status, use top.</p>
+</div>
+<div class="section" id="id158">
+<h2>Frequently used options<a class="headerlink" href="#id158" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-e</span></kbd></td>
+<td>select all processes</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-l</span></kbd></td>
+<td>long format</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-f</span></kbd></td>
+<td>does full listing</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="pstree">
+<span id="command-pstree"></span><h1>pstree<a class="headerlink" href="#pstree" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id159">
+<h2>Name<a class="headerlink" href="#id159" title="Permalink to this headline">¶</a></h2>
+<p>pstree&nbsp;&#8211;&nbsp;display a tree of processes</p>
+</div>
+<div class="section" id="id160">
+<h2>Synopsis<a class="headerlink" href="#id160" title="Permalink to this headline">¶</a></h2>
+<p><strong>pstree</strong> [option]</p>
+</div>
+<div class="section" id="id161">
+<h2>Description<a class="headerlink" href="#id161" title="Permalink to this headline">¶</a></h2>
+<p>ps gives a snapshot of the current processes. If you want a
+repetitive update of this status, use top.</p>
+</div>
+<div class="section" id="id162">
+<h2>Frequently used options<a class="headerlink" href="#id162" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-u</span></kbd></td>
+<td>Show uid transitions. Whenever the uid of a process differs from
+the uid of its parent, the new uid is shown in parentheses after
+the process name.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-p</span></kbd></td>
+<td>Show PIDs. PIDs are shown as decimal numbers in parentheses after
+each process name. -p implicitly disables compaction.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="pushd">
+<span id="command-pushd"></span><h1>pushd<a class="headerlink" href="#pushd" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id163">
+<h2>Name<a class="headerlink" href="#id163" title="Permalink to this headline">¶</a></h2>
+<p>pushd&nbsp;&#8211;&nbsp;Save the current directory on the top of the directory
+stack and then cd to dir.</p>
+</div>
+<div class="section" id="id164">
+<h2>Synopsis<a class="headerlink" href="#id164" title="Permalink to this headline">¶</a></h2>
+<p><strong>pushd</strong> [option...]</p>
+</div>
+<div class="section" id="id165">
+<h2>Description<a class="headerlink" href="#id165" title="Permalink to this headline">¶</a></h2>
+<p>Save the current directory on the top of the directory stack and
+then cd to dir. With no arguments, pushd exchanges the top two
+directories.</p>
+</div>
+<div class="section" id="id166">
+<h2>Frequently used options<a class="headerlink" href="#id166" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><table class="first docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">+N</span></kbd></td>
+<td><p class="first last">Brings the Nth directory (counting from the left of the list
+printed by dirs, starting with zero) to the top of the list by
+rotating the stack.</p>
+</td></tr>
+</tbody>
+</table>
+</li>
+<li><table class="first docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-N</span></kbd></td>
+<td><p class="first last">Brings the Nth directory (counting from the right of the list
+printed by dirs, starting with zero) to the top of the list by
+rotating the stack.</p>
+</td></tr>
+</tbody>
+</table>
+</li>
+</ul>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-d<var>ir</var></span></kbd></td>
+<td>Makes the current working directory be the top of the stack, and
+then executes the equivalent of `cd dir&#8217;. cds to dir.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="pwd">
+<span id="command-pwd"></span><h1>pwd<a class="headerlink" href="#pwd" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id167">
+<h2>Name<a class="headerlink" href="#id167" title="Permalink to this headline">¶</a></h2>
+<p>pwd&nbsp;&#8211;&nbsp;print name of current/working directory</p>
+</div>
+<div class="section" id="id168">
+<h2>Synopsis<a class="headerlink" href="#id168" title="Permalink to this headline">¶</a></h2>
+<p><strong>pwd</strong> [option]</p>
+</div>
+<div class="section" id="id169">
+<h2>Description<a class="headerlink" href="#id169" title="Permalink to this headline">¶</a></h2>
+<p>Print the full filename of the current working directory.</p>
+</div>
+<div class="section" id="id170">
+<h2>Frequently used options<a class="headerlink" href="#id170" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="quota">
+<span id="command-quota"></span><h1>quota<a class="headerlink" href="#quota" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id171">
+<h2>Name<a class="headerlink" href="#id171" title="Permalink to this headline">¶</a></h2>
+<p>quota&nbsp;&#8211;&nbsp;display disk usage and limits</p>
+</div>
+<div class="section" id="id172">
+<h2>Synopsis<a class="headerlink" href="#id172" title="Permalink to this headline">¶</a></h2>
+<p><strong>quota</strong> [option]</p>
+</div>
+<div class="section" id="id173">
+<h2>Description<a class="headerlink" href="#id173" title="Permalink to this headline">¶</a></h2>
+<p>Quota displays users&#8217; disk usage and limits. By default only the
+user quotas are printed.</p>
+</div>
+<div class="section" id="id174">
+<h2>Frequently used options<a class="headerlink" href="#id174" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-s</span></kbd></td>
+<td>flag will make quota(1) try to choose units for showing limits,
+used space and used inodes.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="rmdir">
+<span id="command-rmdir"></span><h1>rmdir<a class="headerlink" href="#rmdir" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id175">
+<h2>Name<a class="headerlink" href="#id175" title="Permalink to this headline">¶</a></h2>
+<p>rmdir&nbsp;&#8211;&nbsp;remove empty directories</p>
+</div>
+<div class="section" id="id176">
+<h2>Synopsis<a class="headerlink" href="#id176" title="Permalink to this headline">¶</a></h2>
+<p><strong>rmdir</strong> [options...] {directory...}</p>
+</div>
+<div class="section" id="id177">
+<h2>Description<a class="headerlink" href="#id177" title="Permalink to this headline">¶</a></h2>
+<p>Remove the DIRECTORY(ies), if they are empty.</p>
+</div>
+<div class="section" id="id178">
+<h2>Frequently used options<a class="headerlink" href="#id178" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-p</span>, <span class="option">--parents</span></kbd></td>
+<td>remove DIRECTORY, then try to remove each directory component of
+that path name. E.g., `rmdir -p a/b/c&#8217; is similar to `rmdir a/b/c
+a/b a&#8217;.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="rm">
+<span id="command-rm"></span><h1>rm<a class="headerlink" href="#rm" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id179">
+<h2>Name<a class="headerlink" href="#id179" title="Permalink to this headline">¶</a></h2>
+<p>rm&nbsp;&#8211;&nbsp;remove files or directories</p>
+</div>
+<div class="section" id="id180">
+<h2>Synopsis<a class="headerlink" href="#id180" title="Permalink to this headline">¶</a></h2>
+<p><strong>rm</strong> [options...] {file...}</p>
+</div>
+<div class="section" id="id181">
+<h2>Description<a class="headerlink" href="#id181" title="Permalink to this headline">¶</a></h2>
+<p>rm removes each specified file. By default, it does not remove
+directories.</p>
+</div>
+<div class="section" id="id182">
+<h2>Frequently used options<a class="headerlink" href="#id182" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-f</span>, <span class="option">--force</span></kbd></td>
+<td>ignore nonexistent files, never prompt</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-i</span>, <span class="option">--interactive</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>prompt before any removal</td></tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>-r, -R , &#8211;recursive</dt>
+<dd>remove the contents of directories recursively</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="scp">
+<span id="command-scp"></span><h1>scp<a class="headerlink" href="#scp" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id183">
+<h2>Name<a class="headerlink" href="#id183" title="Permalink to this headline">¶</a></h2>
+<p>scp&nbsp;&#8211;&nbsp;secure copy</p>
+</div>
+<div class="section" id="id184">
+<h2>Synopsis<a class="headerlink" href="#id184" title="Permalink to this headline">¶</a></h2>
+<p><strong>scp</strong> [option]</p>
+</div>
+<div class="section" id="id185">
+<h2>Description<a class="headerlink" href="#id185" title="Permalink to this headline">¶</a></h2>
+<p>scp copies files between hosts on a network. It uses ssh(1) for
+data transfer, and uses the same authentication and provides the
+same security as ssh(1).</p>
+</div>
+<div class="section" id="id186">
+<h2>Frequently used options<a class="headerlink" href="#id186" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-r</span></kbd></td>
+<td>Recursively copy entire directories.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="sdiff">
+<span id="command-sdiff"></span><h1>sdiff<a class="headerlink" href="#sdiff" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id187">
+<h2>Name<a class="headerlink" href="#id187" title="Permalink to this headline">¶</a></h2>
+<p>sdiff&nbsp;&#8211;&nbsp;find differences between two files and merge interactively</p>
+</div>
+<div class="section" id="id188">
+<h2>Synopsis<a class="headerlink" href="#id188" title="Permalink to this headline">¶</a></h2>
+<p><strong>sdiff</strong> {-o} {outfile} [option...] {from-file} {to-file}</p>
+</div>
+<div class="section" id="id189">
+<h2>Description<a class="headerlink" href="#id189" title="Permalink to this headline">¶</a></h2>
+<p>The sdiff command merges two files and interactively outputs the
+results to outfile.</p>
+</div>
+<div class="section" id="id190">
+<h2>Frequently used options<a class="headerlink" href="#id190" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="sftp">
+<span id="command-sftp"></span><h1>sftp<a class="headerlink" href="#sftp" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id191">
+<h2>Name<a class="headerlink" href="#id191" title="Permalink to this headline">¶</a></h2>
+<p>sftp&nbsp;&#8211;&nbsp;Secure file transfer program</p>
+</div>
+<div class="section" id="id192">
+<h2>Synopsis<a class="headerlink" href="#id192" title="Permalink to this headline">¶</a></h2>
+<p><strong>sftp</strong> [option]</p>
+</div>
+<div class="section" id="id193">
+<h2>Description<a class="headerlink" href="#id193" title="Permalink to this headline">¶</a></h2>
+<p>sftp is an interactive file transfer program, similar to ftp(1),
+which performs all operations over an encrypted ssh(1) transport.</p>
+</div>
+<div class="section" id="id194">
+<h2>Frequently used options<a class="headerlink" href="#id194" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="sleep">
+<span id="command-sleep"></span><h1>sleep<a class="headerlink" href="#sleep" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id195">
+<h2>Name<a class="headerlink" href="#id195" title="Permalink to this headline">¶</a></h2>
+<p>sleep&nbsp;&#8211;&nbsp;delay for a specified amount of time</p>
+</div>
+<div class="section" id="id196">
+<h2>Synopsis<a class="headerlink" href="#id196" title="Permalink to this headline">¶</a></h2>
+<p><strong>sleep</strong> {number} [suffix...]</p>
+</div>
+<div class="section" id="id197">
+<h2>Description<a class="headerlink" href="#id197" title="Permalink to this headline">¶</a></h2>
+<p>Pause for NUMBER seconds. SUFFIX may be `s&#8217; for seconds (the
+default), `m&#8217; for minutes, `h&#8217; for hours or `d&#8217; for days.</p>
+</div>
+<div class="section" id="id198">
+<h2>Frequently used options<a class="headerlink" href="#id198" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="sort">
+<span id="command-sort"></span><h1>sort<a class="headerlink" href="#sort" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id199">
+<h2>Name<a class="headerlink" href="#id199" title="Permalink to this headline">¶</a></h2>
+<p>sort&nbsp;&#8211;&nbsp;sort lines of text files.</p>
+</div>
+<div class="section" id="id200">
+<h2>Synopsis<a class="headerlink" href="#id200" title="Permalink to this headline">¶</a></h2>
+<p><strong>sort</strong> [options...] [file...]</p>
+</div>
+<div class="section" id="id201">
+<h2>Description<a class="headerlink" href="#id201" title="Permalink to this headline">¶</a></h2>
+<p>Write sorted concatenation of all FILE(s) to standard output.</p>
+</div>
+<div class="section" id="id202">
+<h2>Frequently used options<a class="headerlink" href="#id202" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="split">
+<span id="command-split"></span><h1>split<a class="headerlink" href="#split" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id203">
+<h2>Name<a class="headerlink" href="#id203" title="Permalink to this headline">¶</a></h2>
+<p>split&nbsp;&#8211;&nbsp;split a file into pieces</p>
+</div>
+<div class="section" id="id204">
+<h2>Synopsis<a class="headerlink" href="#id204" title="Permalink to this headline">¶</a></h2>
+<p><strong>split</strong> [options...] {infile} {outfile}</p>
+</div>
+<div class="section" id="id205">
+<h2>Description<a class="headerlink" href="#id205" title="Permalink to this headline">¶</a></h2>
+<p>Split INFILE into a specified number of line groups, with output
+going into a succession of files, OUTFILEaa, OUTFILEab, and so on.
+The INFILE remains unchanged. This command is handy if you have a
+very long text file that needs to be reduced to a succession of
+smaller files. This was often done to email large files in smaller
+chunks, because it was at one time considered bad practice to send
+single large email messages.</p>
+</div>
+<div class="section" id="id206">
+<h2>Frequently used options<a class="headerlink" href="#id206" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-n</span></kbd></td>
+<td>Split the INFILE into <em>n</em>-line segments. The default is 1000.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="ssh">
+<span id="command-ssh"></span><h1>ssh<a class="headerlink" href="#ssh" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id207">
+<h2>Name<a class="headerlink" href="#id207" title="Permalink to this headline">¶</a></h2>
+<p>ssh&nbsp;&#8211;&nbsp;OpenSSH SSH client</p>
+</div>
+<div class="section" id="id208">
+<h2>Synopsis<a class="headerlink" href="#id208" title="Permalink to this headline">¶</a></h2>
+<p><strong>ssh</strong> [option]</p>
+</div>
+<div class="section" id="id209">
+<h2>Description<a class="headerlink" href="#id209" title="Permalink to this headline">¶</a></h2>
+<p>ssh (SSH client) is a program for logging into a remote machine and
+for executing commands on a remote machine. It is intended to
+replace rlogin and rsh, and provide secure encrypted communications
+between two untrusted hosts over an insecure network.</p>
+</div>
+<div class="section" id="id210">
+<h2>Frequently used options<a class="headerlink" href="#id210" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="stat">
+<span id="command-stat"></span><h1>stat<a class="headerlink" href="#stat" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id211">
+<h2>Name<a class="headerlink" href="#id211" title="Permalink to this headline">¶</a></h2>
+<p>stat&nbsp;&#8211;&nbsp;display file or filesystem status</p>
+</div>
+<div class="section" id="id212">
+<h2>Synopsis<a class="headerlink" href="#id212" title="Permalink to this headline">¶</a></h2>
+<p><strong>stat</strong> [option...] {filename}</p>
+</div>
+<div class="section" id="id213">
+<h2>Description<a class="headerlink" href="#id213" title="Permalink to this headline">¶</a></h2>
+<p>This command displays information about the specified file(s).</p>
+</div>
+<div class="section" id="id214">
+<h2>Frequently used options<a class="headerlink" href="#id214" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="sudo">
+<span id="command-sudo"></span><h1>sudo<a class="headerlink" href="#sudo" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id215">
+<h2>Name<a class="headerlink" href="#id215" title="Permalink to this headline">¶</a></h2>
+<p>sudo&nbsp;&#8211;&nbsp;execute a command as another user</p>
+</div>
+<div class="section" id="id216">
+<h2>Synopsis<a class="headerlink" href="#id216" title="Permalink to this headline">¶</a></h2>
+<p><strong>sudo</strong> [option...]</p>
+</div>
+<div class="section" id="id217">
+<h2>Description<a class="headerlink" href="#id217" title="Permalink to this headline">¶</a></h2>
+<p>sudo allows a permitted user to execute a command as the superuser
+or another user, as specified in the sudoers file.</p>
+</div>
+<div class="section" id="id218">
+<h2>Frequently used options<a class="headerlink" href="#id218" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="su">
+<span id="command-su"></span><h1>su<a class="headerlink" href="#su" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id219">
+<h2>Name<a class="headerlink" href="#id219" title="Permalink to this headline">¶</a></h2>
+<p>su&nbsp;&#8211;&nbsp;run a shell with substitute user and group IDs</p>
+</div>
+<div class="section" id="id220">
+<h2>Synopsis<a class="headerlink" href="#id220" title="Permalink to this headline">¶</a></h2>
+<p><strong>su</strong> [option...]</p>
+</div>
+<div class="section" id="id221">
+<h2>Description<a class="headerlink" href="#id221" title="Permalink to this headline">¶</a></h2>
+<p>Change the effective user id and group id to that of USER.</p>
+</div>
+<div class="section" id="id222">
+<h2>Frequently used options<a class="headerlink" href="#id222" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>-, -l, &#8211;login</dt>
+<dd>make the shell a login shell</dd>
+</dl>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-c</span>, <span class="option">--command=<var>COMMAND</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>pass a single COMMAND to the shell with -c</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="tac">
+<span id="command-tac"></span><h1>tac<a class="headerlink" href="#tac" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id223">
+<h2>Name<a class="headerlink" href="#id223" title="Permalink to this headline">¶</a></h2>
+<p>tac&nbsp;&#8211;&nbsp;concatenate and print files in reverse</p>
+</div>
+<div class="section" id="id224">
+<h2>Synopsis<a class="headerlink" href="#id224" title="Permalink to this headline">¶</a></h2>
+<p><strong>tac</strong> [option...] [file...]</p>
+</div>
+<div class="section" id="id225">
+<h2>Description<a class="headerlink" href="#id225" title="Permalink to this headline">¶</a></h2>
+<p>Write each FILE to standard output, last line first. With no FILE,
+or when FILE is -, read standard input.</p>
+</div>
+<div class="section" id="id226">
+<h2>Frequently used options<a class="headerlink" href="#id226" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-b</span>, <span class="option">--before</span></kbd></td>
+<td>attach the separator before instead of after</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="tail">
+<span id="command-tail"></span><h1>tail<a class="headerlink" href="#tail" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id227">
+<h2>Name<a class="headerlink" href="#id227" title="Permalink to this headline">¶</a></h2>
+<p>tail&nbsp;&#8211;&nbsp;output the last part of files</p>
+</div>
+<div class="section" id="id228">
+<h2>Synopsis<a class="headerlink" href="#id228" title="Permalink to this headline">¶</a></h2>
+<p><strong>tail</strong> [option...] [file...]</p>
+</div>
+<div class="section" id="id229">
+<h2>Description<a class="headerlink" href="#id229" title="Permalink to this headline">¶</a></h2>
+<p>Print the last 10 lines of each FILE to standard output. With more
+than one FILE, precede each with a header giving the file name.
+With no FILE, or when FILE is -, read standard input.</p>
+</div>
+<div class="section" id="id230">
+<h2>Frequently used options<a class="headerlink" href="#id230" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-c</span>, <span class="option">--bytes=<var>N</var></span></kbd></td>
+<td>output the last N bytes</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-f</span>, <span class="option">--follow</span></kbd></td>
+<td>output appended data as the file grows</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-n</span>, <span class="option">--lines=<var>N</var></span></kbd></td>
+<td>output the last N lines, instead of the last 10</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="tar">
+<span id="command-tar"></span><h1>tar<a class="headerlink" href="#tar" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id231">
+<h2>Name<a class="headerlink" href="#id231" title="Permalink to this headline">¶</a></h2>
+<p>tar&nbsp;&#8211;&nbsp;The GNU version of the tar archiving utility</p>
+</div>
+<div class="section" id="id232">
+<h2>Synopsis<a class="headerlink" href="#id232" title="Permalink to this headline">¶</a></h2>
+<p><strong>tar</strong> [options]</p>
+</div>
+<div class="section" id="id233">
+<h2>Description<a class="headerlink" href="#id233" title="Permalink to this headline">¶</a></h2>
+<p>tar is an archiving program designed to store and extract files
+from an archive file known as a tarfile. A tarfile may be made on a
+tape drive, however, it is also common to write a tarfile to a
+normal file. The first argument to tar must be one of the options:
+Acdrtux, followed by any optional functions. The final arguments to
+tar are the names of the files or directories which should be
+archived.</p>
+</div>
+<div class="section" id="id234">
+<h2>Frequently used options<a class="headerlink" href="#id234" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-t</span>, <span class="option">--files-from=<var>F</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>get names to extract or create from file F</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-c</span>, <span class="option">--directory <var>DIR</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>change to directory DIR</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-x</span>, <span class="option">--exclude-from <var>FILE</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>exclude files listed in FILE</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-V</span>, <span class="option">--label <var>NAME</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>create archive with volume name NAME</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-Z</span>, <span class="option">--compress</span>, <span class="option">--uncompress</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>filter the archive through compress</td></tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>-f, &#8211;file [hostname:]F</dt>
+<dd>use archive file or device F (default /dev/rmt0)</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="tee">
+<span id="command-tee"></span><h1>tee<a class="headerlink" href="#tee" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id235">
+<h2>Name<a class="headerlink" href="#id235" title="Permalink to this headline">¶</a></h2>
+<p>tee&nbsp;&#8211;&nbsp;read from standard input and write to standard output and
+files</p>
+</div>
+<div class="section" id="id236">
+<h2>Synopsis<a class="headerlink" href="#id236" title="Permalink to this headline">¶</a></h2>
+<p><strong>tee</strong> [options...] {files}</p>
+</div>
+<div class="section" id="id237">
+<h2>Description<a class="headerlink" href="#id237" title="Permalink to this headline">¶</a></h2>
+<p>Copy standard input to each FILE, and also to standard output.</p>
+</div>
+<div class="section" id="id238">
+<h2>Frequently used options<a class="headerlink" href="#id238" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-a</span>, <span class="option">--append</span></kbd></td>
+<td>append to the given FILEs, do not overwrite</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="telnet">
+<span id="command-telnet"></span><h1>telnet<a class="headerlink" href="#telnet" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id239">
+<h2>Name<a class="headerlink" href="#id239" title="Permalink to this headline">¶</a></h2>
+<p>telnet&nbsp;&#8211;&nbsp; user interface to the TELNET protocol</p>
+</div>
+<div class="section" id="id240">
+<h2>Synopsis<a class="headerlink" href="#id240" title="Permalink to this headline">¶</a></h2>
+<p><strong>telnet</strong> [option]</p>
+</div>
+<div class="section" id="id241">
+<h2>Description<a class="headerlink" href="#id241" title="Permalink to this headline">¶</a></h2>
+<p>The telnet command is used to communicate with another host using
+the TELNET protocol.</p>
+</div>
+<div class="section" id="id242">
+<h2>Frequently used options<a class="headerlink" href="#id242" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="top">
+<span id="command-top"></span><h1>top<a class="headerlink" href="#top" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id243">
+<h2>Name<a class="headerlink" href="#id243" title="Permalink to this headline">¶</a></h2>
+<p>top&nbsp;&#8211;&nbsp;display top CPU processes</p>
+</div>
+<div class="section" id="id244">
+<h2>Synopsis<a class="headerlink" href="#id244" title="Permalink to this headline">¶</a></h2>
+<p><strong>top</strong> [option]</p>
+</div>
+<div class="section" id="id245">
+<h2>Description<a class="headerlink" href="#id245" title="Permalink to this headline">¶</a></h2>
+<p>top provides an ongoing look at processor activity in real time. It
+displays a listing of the most CPU-intensive tasks on the system,
+and can provide an interactive interface for manipulating
+processes. It can sort the tasks by CPU usage, memory usage and
+runtime.</p>
+</div>
+<div class="section" id="frequently-used-interactive-commands">
+<h2>Frequently used interactive commands<a class="headerlink" href="#frequently-used-interactive-commands" title="Permalink to this headline">¶</a></h2>
+<p>Several single-key commands are recognized while top is running.
+Some are disabled if the s option has been given on the command
+line.</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-h</span></kbd></td>
+<td>Displays a help screen giving a brief summary of commands, and the
+status of secure and cumulative modes.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-k</span></kbd></td>
+<td>Kill a process.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-q</span></kbd></td>
+<td>Quit.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r</span></kbd></td>
+<td>Re-nice a process. You will be prompted for the PID of the task,
+and the value to nice it to. Entering a positve value will cause a
+process to be niced to negative values, and lose priority.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-m</span></kbd></td>
+<td>Toggle display of memory information.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-c</span></kbd></td>
+<td>Toggle display of command name or full command line.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-p</span></kbd></td>
+<td>Sort tasks by CPU usage (default).</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="touch">
+<span id="command-touch"></span><h1>touch<a class="headerlink" href="#touch" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id246">
+<h2>Name<a class="headerlink" href="#id246" title="Permalink to this headline">¶</a></h2>
+<p>touch&nbsp;&#8211;&nbsp;change file timestamps</p>
+</div>
+<div class="section" id="id247">
+<h2>Synopsis<a class="headerlink" href="#id247" title="Permalink to this headline">¶</a></h2>
+<p><strong>touch</strong> [options...] {file...}</p>
+</div>
+<div class="section" id="id248">
+<h2>Description<a class="headerlink" href="#id248" title="Permalink to this headline">¶</a></h2>
+<p>Update the access and modification times of each FILE to the
+current time.</p>
+</div>
+<div class="section" id="id249">
+<h2>Frequently used options<a class="headerlink" href="#id249" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-a</span></kbd></td>
+<td>change only the access time</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-m</span></kbd></td>
+<td>change only the modification time</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-t <var>STAMP</var></span></kbd></td>
+<td>use [[CC]YY]MMDDhhmm[.ss] instead of current time</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="tr">
+<span id="command-tr"></span><h1>tr<a class="headerlink" href="#tr" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id250">
+<h2>Name<a class="headerlink" href="#id250" title="Permalink to this headline">¶</a></h2>
+<p>tr&nbsp;&#8211;&nbsp;translate or delete characters</p>
+</div>
+<div class="section" id="id251">
+<h2>Synopsis<a class="headerlink" href="#id251" title="Permalink to this headline">¶</a></h2>
+<p><strong>tr</strong> [options...] {set1} [set2]</p>
+</div>
+<div class="section" id="id252">
+<h2>Description<a class="headerlink" href="#id252" title="Permalink to this headline">¶</a></h2>
+<p>Translate, squeeze, and/or delete characters from standard input,
+writing to standard output.</p>
+</div>
+<div class="section" id="id253">
+<h2>Frequently used options<a class="headerlink" href="#id253" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="type">
+<span id="command-type"></span><h1>type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id254">
+<h2>Name<a class="headerlink" href="#id254" title="Permalink to this headline">¶</a></h2>
+<p>type&nbsp;&#8211;&nbsp;For each <em>name</em>, indicate how it would be interpreted if
+used as a command name.</p>
+</div>
+<div class="section" id="id255">
+<h2>Synopsis<a class="headerlink" href="#id255" title="Permalink to this headline">¶</a></h2>
+<p><strong>type</strong> [option...] [name...]</p>
+</div>
+<div class="section" id="id256">
+<h2>Description<a class="headerlink" href="#id256" title="Permalink to this headline">¶</a></h2>
+<p>For each name, indicate how it would be interpreted if used as a
+command name.</p>
+</div>
+<div class="section" id="id257">
+<h2>Frequently used options<a class="headerlink" href="#id257" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-t</span></kbd></td>
+<td>Type prints a single word which is one of `alias&#8217;, `function&#8217;,
+`builtin&#8217;, `file&#8217; or `keyword&#8217;, if name is an alias, shell
+function, shell builtin, disk file, or shell reserved word,
+respectively.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-p</span></kbd></td>
+<td>Type either returns the name of the disk file that would be
+executed, or nothing if `-t&#8217; would not return `file&#8217;.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-a</span></kbd></td>
+<td>Type returns all of the places that contain an executable named
+file. This includes aliases and functions, if and only if the `-p&#8217;
+option is not also used.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="umount">
+<span id="command-umount"></span><h1>umount<a class="headerlink" href="#umount" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id258">
+<h2>Name<a class="headerlink" href="#id258" title="Permalink to this headline">¶</a></h2>
+<p>umount&nbsp;&#8211;&nbsp;umount file systems</p>
+</div>
+<div class="section" id="id259">
+<h2>Synopsis<a class="headerlink" href="#id259" title="Permalink to this headline">¶</a></h2>
+<p><strong>umount</strong> [dir]</p>
+</div>
+<div class="section" id="id260">
+<h2>Description<a class="headerlink" href="#id260" title="Permalink to this headline">¶</a></h2>
+<p>The umount command detaches the file system(s) mentioned from the
+file hierarchy.</p>
+</div>
+<div class="section" id="id261">
+<h2>Frequently used options<a class="headerlink" href="#id261" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="uniq">
+<span id="command-uniq"></span><h1>uniq<a class="headerlink" href="#uniq" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id262">
+<h2>Name<a class="headerlink" href="#id262" title="Permalink to this headline">¶</a></h2>
+<p>uniq&nbsp;&#8211;&nbsp; remove duplicate lines from a sorted file</p>
+</div>
+<div class="section" id="id263">
+<h2>Synopsis<a class="headerlink" href="#id263" title="Permalink to this headline">¶</a></h2>
+<p><strong>uniq</strong> [option...] [input] [output]</p>
+</div>
+<div class="section" id="id264">
+<h2>Description<a class="headerlink" href="#id264" title="Permalink to this headline">¶</a></h2>
+<p>Discard all but one of successive identical lines from INPUT (or
+standard input), writing to OUTPUT (or standard output).</p>
+</div>
+<div class="section" id="id265">
+<h2>Frequently used options<a class="headerlink" href="#id265" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="watch">
+<span id="command-watch"></span><h1>watch<a class="headerlink" href="#watch" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id266">
+<h2>Name<a class="headerlink" href="#id266" title="Permalink to this headline">¶</a></h2>
+<p>watch&nbsp;&#8211;&nbsp;execute a program periodically, showing output fullscreen</p>
+</div>
+<div class="section" id="id267">
+<h2>Synopsis<a class="headerlink" href="#id267" title="Permalink to this headline">¶</a></h2>
+<p><strong>watch</strong> [option] {command}</p>
+</div>
+<div class="section" id="id268">
+<h2>Description<a class="headerlink" href="#id268" title="Permalink to this headline">¶</a></h2>
+<p>watch runs COMMAND repeatedly, displaying its output (the first
+screenfull). This allows you to watch the program output change
+over time.</p>
+</div>
+<div class="section" id="id269">
+<h2>Frequently used options<a class="headerlink" href="#id269" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="wc">
+<span id="command-wc"></span><h1>wc<a class="headerlink" href="#wc" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id270">
+<h2>Name<a class="headerlink" href="#id270" title="Permalink to this headline">¶</a></h2>
+<p>wc&nbsp;&#8211;&nbsp; print the number of bytes, words, and lines in files</p>
+</div>
+<div class="section" id="id271">
+<h2>Synopsis<a class="headerlink" href="#id271" title="Permalink to this headline">¶</a></h2>
+<p><strong>wc</strong> [option...] [command] [file...]</p>
+</div>
+<div class="section" id="id272">
+<h2>Description<a class="headerlink" href="#id272" title="Permalink to this headline">¶</a></h2>
+<p>Print newline, word, and byte counts for each FILE, and a total
+line if more than one FILE is specified.</p>
+</div>
+<div class="section" id="id273">
+<h2>Frequently used options<a class="headerlink" href="#id273" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-c</span>, <span class="option">--bytes</span></kbd></td>
+<td>print the byte counts</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-l</span>, <span class="option">--lines</span></kbd></td>
+<td>print the newline counts</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-w</span>, <span class="option">--words</span></kbd></td>
+<td>print the word counts</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="wget">
+<span id="command-wget"></span><h1>wget<a class="headerlink" href="#wget" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id274">
+<h2>Name<a class="headerlink" href="#id274" title="Permalink to this headline">¶</a></h2>
+<p>wget&nbsp;&#8211;&nbsp;GNU Wget Manual</p>
+</div>
+<div class="section" id="id275">
+<h2>Synopsis<a class="headerlink" href="#id275" title="Permalink to this headline">¶</a></h2>
+<p><strong>wget</strong> [option...] [URL...]</p>
+</div>
+<div class="section" id="id276">
+<h2>Description<a class="headerlink" href="#id276" title="Permalink to this headline">¶</a></h2>
+<p>GNU Wget is a free utility for non-interactive download of files
+from the Web. It supports HTTP, HTTPS, and FTP protocols, as well
+as retrieval through HTTP proxies.</p>
+</div>
+<div class="section" id="frequently-used-download-options">
+<h2>Frequently used download options<a class="headerlink" href="#frequently-used-download-options" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-n<var>c</var></span>, <span class="option">--no-clobber</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>If a file is downloaded more than once in the same directory,
+Wget&#8217;s behavior depends on a few options, including -nc. In certain
+cases, the local file will be clobbered, or overwritten, upon
+repeated download. In other cases it will be preserved.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-c</span>, <span class="option">--continue</span></kbd></td>
+<td>Continue getting a partially-downloaded file. This is useful when
+you want to finish up a download started by a previous instance of
+Wget, or by another program.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="frequently-used-directory-options">
+<h2>Frequently used directory options<a class="headerlink" href="#frequently-used-directory-options" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-n<var>d</var></span>, <span class="option">--no-directories</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Do not create a hierarchy of directories when retrieving
+recursively.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="frequently-used-http-options">
+<h2>Frequently used HTTP options<a class="headerlink" href="#frequently-used-http-options" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="frequently-used-ftp-options">
+<h2>Frequently used FTP options<a class="headerlink" href="#frequently-used-ftp-options" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>-g on/off, &#8211;glob=on/off</dt>
+<dd>Turn FTP globbing on or off. Globbing means you may use the
+shell-like special characters (wildcards), like *, ?, [ and ] to
+retrieve more than one file from the same directory at once.</dd>
+</dl>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-p<var>assive-ftp</var></span></kbd></td>
+<td>Use the passive FTP retrieval scheme, in which the client initiates
+the data connection.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>etr-symlinks</var></span></kbd></td>
+<td>When &#8211;retr-symlinks is specified, however, symbolic links are
+traversed and the pointed-to files are retrieved.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="frequently-used-recursive-retrieval-options">
+<h2>Frequently used recursive retrieval options<a class="headerlink" href="#frequently-used-recursive-retrieval-options" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-r</span>, <span class="option">--recursive</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Turn on recursive retrieving.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-l <var>DEPTH</var></span>, <span class="option">--level=<var>DEPTH</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Specify recursion maximum depth level DEPTH.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-k</span>, <span class="option">--convert-links</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>After the download is complete, convert the links in the document
+to make them suitable for local viewing.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="whatis">
+<span id="command-whatis"></span><h1>whatis<a class="headerlink" href="#whatis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id277">
+<h2>Name<a class="headerlink" href="#id277" title="Permalink to this headline">¶</a></h2>
+<p>whatis&nbsp;&#8211;&nbsp;search the whatis database for complete words.</p>
+</div>
+<div class="section" id="id278">
+<h2>Synopsis<a class="headerlink" href="#id278" title="Permalink to this headline">¶</a></h2>
+<p><strong>whatis</strong> {keyword...}</p>
+</div>
+<div class="section" id="id279">
+<h2>Description<a class="headerlink" href="#id279" title="Permalink to this headline">¶</a></h2>
+<p>whatis searches a set of database files containing short
+descriptions of system commands for keywords and displays the
+result on the standard output.</p>
+</div>
+<div class="section" id="id280">
+<h2>Frequently used options<a class="headerlink" href="#id280" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="whereis">
+<span id="command-whereis"></span><h1>whereis<a class="headerlink" href="#whereis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id281">
+<h2>Name<a class="headerlink" href="#id281" title="Permalink to this headline">¶</a></h2>
+<p>whereis&nbsp;&#8211;&nbsp;locate the binary, source, and manual page files for a
+command</p>
+</div>
+<div class="section" id="id282">
+<h2>Synopsis<a class="headerlink" href="#id282" title="Permalink to this headline">¶</a></h2>
+<p><strong>whereis</strong> [options...]</p>
+</div>
+<div class="section" id="id283">
+<h2>Description<a class="headerlink" href="#id283" title="Permalink to this headline">¶</a></h2>
+<p>whereis locates source/binary and manuals sections for specified
+files.</p>
+</div>
+<div class="section" id="id284">
+<h2>Frequently used options<a class="headerlink" href="#id284" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="which">
+<span id="command-which"></span><h1>which<a class="headerlink" href="#which" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id285">
+<h2>Name<a class="headerlink" href="#id285" title="Permalink to this headline">¶</a></h2>
+<p>which&nbsp;&#8211;&nbsp;shows the full path of (shell) commands.</p>
+</div>
+<div class="section" id="id286">
+<h2>Synopsis<a class="headerlink" href="#id286" title="Permalink to this headline">¶</a></h2>
+<p><strong>which</strong> [option] {programname}</p>
+</div>
+<div class="section" id="id287">
+<h2>Description<a class="headerlink" href="#id287" title="Permalink to this headline">¶</a></h2>
+<p>For each of its arguments it prints to stdout the full path of the
+executables that would have been executed when this argument had
+been entered at the shell prompt.</p>
+</div>
+<div class="section" id="id288">
+<h2>Frequently used options<a class="headerlink" href="#id288" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="xargs">
+<span id="command-xargs"></span><h1>xargs<a class="headerlink" href="#xargs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id289">
+<h2>Name<a class="headerlink" href="#id289" title="Permalink to this headline">¶</a></h2>
+<p>xargs&nbsp;&#8211;&nbsp; build and execute command lines from standard input</p>
+</div>
+<div class="section" id="id290">
+<h2>Synopsis<a class="headerlink" href="#id290" title="Permalink to this headline">¶</a></h2>
+<p><strong>xargs</strong> [option...] [command] [initial-argument...]</p>
+</div>
+<div class="section" id="id291">
+<h2>Description<a class="headerlink" href="#id291" title="Permalink to this headline">¶</a></h2>
+<p>Execute COMMAND followed by its optionl INITIAL-ARGUMENTS and
+append additional arguments found on standard input. Typically, the
+additional arguments are filenames in quantities too large for a
+single command line. <strong>xargs</strong> runs COMMAND multiple times to
+exhaust all arguments on standard input.</p>
+</div>
+<div class="section" id="id292">
+<h2>Frequently used options<a class="headerlink" href="#id292" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-n <var>MAXARGS</var></span></kbd></td>
+<td>Limit the number of additional arguments to MAXARGS for each
+invocations of COMMAND.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-p</span></kbd></td>
+<td>Interactive mode. Prompt the user for each execution of COMMAND.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, K. Jarrod Millman.<br/>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, except where indicated otherwise.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.<br/>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

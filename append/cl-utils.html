@@ -1,0 +1,702 @@
+
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Command Line Utilities &mdash; Command line guide for data scientist 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.1.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Command line guide for data scientist 0.1 documentation" href="../index.html" />
+    <link rel="up" title="Appendices" href="index.html" />
+    <link rel="next" title="Files and directories" href="../commands.html" />
+    <link rel="prev" title="Appendices" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Command line guide for data scientist</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Appendices</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Command Line Utilities</a><ul>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="index.html" title="Previous Chapter: Appendices"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Appendices</span>
+    </a>
+  </li>
+  <li>
+    <a href="../commands.html" title="Next Chapter: Files and directories"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Files and direct... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="command-line-utilities">
+<h1>Command Line Utilities<a class="headerlink" href="#command-line-utilities" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html">Files and directories</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#cd-change-the-current-working-directory-to-directory">cd&nbsp;&#8211;&nbsp;Change the current working directory to <em>directory</em>.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#data-manipulation">Data manipulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#dos2unix-dos-mac-to-unix-and-vice-versa-text-file-format-converter">dos2unix &#8211; DOS/Mac to Unix and vice versa text file format converter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#apropos-search-the-whatis-database-for-strings">apropos&nbsp;&#8211;&nbsp;search the whatis database for strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id1">Description</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#bg-background">bg &#8211;&nbsp;background</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id2">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id3">Description</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#bzip2-a-block-sorting-file-compressor">bzip2&nbsp;&#8211;&nbsp;a block-sorting file compressor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id4">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id5">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id6">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#cat">cat</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#name">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id7">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id8">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id9">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#chmod">chmod</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id10">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id11">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id12">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id13">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#clear">clear</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id14">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id15">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id16">Description</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#cmp">cmp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id17">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id18">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id19">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id20">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#comm">comm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id21">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id22">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id23">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id24">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#cp-copy-files-and-directories">cp&nbsp;&#8211;&nbsp;copy files and directories</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id25">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id26">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id27">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#date">date</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id28">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id29">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id30">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id31">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#df">df</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id32">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id33">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id34">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id35">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#diff3">diff3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id36">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id37">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id38">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id39">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#diff">diff</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id40">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id41">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id42">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id43">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#dirs">dirs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id44">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id45">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id46">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id47">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#du">du</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id48">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id49">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id50">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id51">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#echo">echo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id52">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id53">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id54">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id55">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#fg">fg</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id56">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id57">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id58">Description</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#file">file</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id59">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id60">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id61">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id62">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#find">find</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id63">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id64">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id65">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#expressions">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id66">Frequently used options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#frequently-used-tests">Frequently used tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#frequently-used-actions">Frequently used actions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#free">free</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id67">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id68">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id69">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id70">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#ftp">ftp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id71">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id72">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id73">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id74">Frequently used options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#frequently-used-commands">Frequently used commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#grep">grep</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id75">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id76">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id77">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id78">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#gunzip">gunzip</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id79">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id80">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id81">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id82">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#gzip">gzip</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id83">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id84">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id85">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id86">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#head">head</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id87">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id88">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id89">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id90">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#history">history</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id91">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id92">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id93">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id94">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#jobs">jobs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id95">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id96">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id97">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id98">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#killall">killall</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id99">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id100">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id101">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id102">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#kill">kill</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id103">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id104">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id105">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id106">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#less">less</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id107">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id108">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id109">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id110">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#ln">ln</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id111">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id112">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id113">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id114">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#ls">ls</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id115">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id116">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id117">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id118">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#mail">mail</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id119">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id120">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id121">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id122">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#man">man</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id123">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id124">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id125">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id126">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#more">more</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id127">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id128">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id129">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id130">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#mount">mount</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id131">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id132">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id133">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id134">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#mv">mv</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id135">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id136">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id137">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id138">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#nohup">nohup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id139">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id140">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id141">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id142">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#paste">paste</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id143">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id144">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id145">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id146">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#pine">pine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id147">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id148">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id149">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id150">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#popd">popd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id151">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id152">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id153">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id154">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#ps">ps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id155">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id156">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id157">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id158">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#pstree">pstree</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id159">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id160">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id161">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id162">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#pushd">pushd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id163">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id164">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id165">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id166">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#pwd">pwd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id167">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id168">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id169">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id170">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#quota">quota</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id171">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id172">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id173">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id174">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#rmdir">rmdir</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id175">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id176">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id177">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id178">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#rm">rm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id179">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id180">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id181">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id182">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#scp">scp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id183">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id184">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id185">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id186">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#sdiff">sdiff</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id187">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id188">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id189">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id190">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#sftp">sftp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id191">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id192">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id193">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id194">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#sleep">sleep</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id195">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id196">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id197">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id198">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#sort">sort</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id199">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id200">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id201">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id202">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#split">split</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id203">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id204">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id205">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id206">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#ssh">ssh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id207">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id208">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id209">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id210">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#stat">stat</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id211">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id212">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id213">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id214">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#sudo">sudo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id215">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id216">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id217">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id218">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#su">su</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id219">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id220">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id221">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id222">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#tac">tac</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id223">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id224">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id225">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id226">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#tail">tail</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id227">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id228">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id229">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id230">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#tar">tar</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id231">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id232">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id233">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id234">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#tee">tee</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id235">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id236">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id237">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id238">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#telnet">telnet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id239">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id240">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id241">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id242">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#top">top</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id243">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id244">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id245">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#frequently-used-interactive-commands">Frequently used interactive commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#touch">touch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id246">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id247">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id248">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id249">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#tr">tr</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id250">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id251">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id252">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id253">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#type">type</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id254">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id255">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id256">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id257">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#umount">umount</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id258">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id259">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id260">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id261">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#uniq">uniq</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id262">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id263">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id264">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id265">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#watch">watch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id266">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id267">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id268">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id269">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#wc">wc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id270">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id271">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id272">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id273">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#wget">wget</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id274">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id275">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id276">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#frequently-used-download-options">Frequently used download options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#frequently-used-directory-options">Frequently used directory options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#frequently-used-http-options">Frequently used HTTP options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#frequently-used-ftp-options">Frequently used FTP options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#frequently-used-recursive-retrieval-options">Frequently used recursive retrieval options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#whatis">whatis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id277">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id278">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id279">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id280">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#whereis">whereis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id281">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id282">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id283">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id284">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#which">which</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id285">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id286">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id287">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id288">Frequently used options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#xargs">xargs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id289">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id290">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id291">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#id292">Frequently used options</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, K. Jarrod Millman.<br/>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, except where indicated otherwise.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.<br/>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

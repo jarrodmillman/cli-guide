@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Shell Customization &mdash; Command line guide for data scientist 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.1.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Command line guide for data scientist 0.1 documentation" href="../index.html" />
+    <link rel="up" title="Appendices" href="index.html" />
+    <link rel="prev" title="File System Layout" href="fs-layout.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Command line guide for data scientist</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Appendices</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Shell Customization</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="fs-layout.html" title="Previous Chapter: File System Layout"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; File System Layo...</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="shell-customization">
+<h1>Shell Customization<a class="headerlink" href="#shell-customization" title="Permalink to this headline">¶</a></h1>
+<p>There will come a time when some modification of the shell
+environment will be desired. Fortunately, in bash this is very
+easily done.</p>
+<p><strong>Table C-1. Bash Configuration File</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="43%" />
+<col width="57%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">File</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><em>/etc/profile</em></td>
+<td>System login environment</td>
+</tr>
+<tr class="row-odd"><td><em>/etc/bashrc</em></td>
+<td>System environment</td>
+</tr>
+<tr class="row-even"><td><em>~/. bash_profile</em></td>
+<td>User login environment</td>
+</tr>
+<tr class="row-odd"><td><em>~/. bashrc</em></td>
+<td>User environment</td>
+</tr>
+<tr class="row-even"><td><em>~/. bash_logout</em></td>
+<td>User logout script</td>
+</tr>
+</tbody>
+</table>
+<p>If no .bash_profile, then .bash_login, then, profile.</p>
+<p><strong>Table C-2. Prompt String Customization</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Command</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><em>\d</em></td>
+<td>The date in &#8220;Weekday Month Day&#8221; format</td>
+</tr>
+<tr class="row-odd"><td><em>\H</em></td>
+<td>The hostname</td>
+</tr>
+<tr class="row-even"><td><em>\h</em></td>
+<td>The hostname up to the firlst &#8221;.&#8221;</td>
+</tr>
+<tr class="row-odd"><td><em>\n</em></td>
+<td>A carriage return and line feed</td>
+</tr>
+<tr class="row-even"><td><em>\T</em></td>
+<td>The current time in 12-hour HH:MM:SS format</td>
+</tr>
+<tr class="row-odd"><td><em>\t</em></td>
+<td>The current time in HH:MM:SS format</td>
+</tr>
+<tr class="row-even"><td><em>\&#64;</em></td>
+<td>The current time in 12-hour am/pm format</td>
+</tr>
+<tr class="row-odd"><td><em>\u</em></td>
+<td>The username of the current user</td>
+</tr>
+<tr class="row-even"><td><em>\w</em></td>
+<td>The current working directory</td>
+</tr>
+<tr class="row-odd"><td><em>\W</em></td>
+<td>The basename of the current working directory</td>
+</tr>
+<tr class="row-even"><td><em>\#</em></td>
+<td>The command number of the current command</td>
+</tr>
+<tr class="row-odd"><td><em>\!</em></td>
+<td>The history number of the current command</td>
+</tr>
+<tr class="row-even"><td><em>\$</em></td>
+<td>If the effective UID is 0 print a #, otherwise print a $</td>
+</tr>
+<tr class="row-odd"><td><em>\\</em></td>
+<td>Print a backslash</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Don&#8217;t use editor, use <a class="reference internal" href="../commands.html#command-echo"><em>echo</em></a>  and command editing</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, K. Jarrod Millman.<br/>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, except where indicated otherwise.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.<br/>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

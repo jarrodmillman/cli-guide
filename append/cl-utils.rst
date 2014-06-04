@@ -3,6 +3,6 @@ Command Line Utilities
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-    all -- all manpages <../commands.rst>
+   ../commands.rst

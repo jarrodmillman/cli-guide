@@ -41,7 +41,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Guide to the command line for data scientist'
+project = u'Command line guide for data scientist'
 copyright = u'2014, K. Jarrod Millman'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -168,7 +168,7 @@ html_show_sourcelink = False
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Guidetothecommandlinefordatascientistdoc'
+htmlhelp_basename = 'Commandlineguidefordatascientistdoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -187,7 +187,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'Guidetothecommandlinefordatascientist.tex', u'Guide to the command line for data scientist',
+  ('index', 'Commandlineguidefordatascientist.tex', u'Command line guide for data scientist',
    u'K. Jarrod Millman', 'manual'),
 ]
 
@@ -217,7 +217,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'guidetothecommandlinefordatascientist', u'Guide to the command line for data scientist',
+    ('index', 'Commandlineguidefordatascientist', u'Command line guide for data scientist',
      [u'K. Jarrod Millman'], 1)
 ]
 
@@ -231,8 +231,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'Guidetothecommandlinefordatascientist', u'Guide to the command line for data scientist',
-   u'K. Jarrod Millman', 'Guidetothecommandlinefordatascientist', 'One line description of project.',
+  ('index', 'Commandlineguidefordatascientist', u'Command line guide for data scientist',
+   u'K. Jarrod Millman', 'Commandlineguidefordatascientist', 'One line description of project.',
    'Miscellaneous'),
 ]
 

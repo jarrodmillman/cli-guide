@@ -1,10 +1,41 @@
 .. _command-apropos:
 
-apropos -- search the whatis database for strings
-=================================================
+Files and directories 
+=====================
+
+.. _command-cd:
+
+cd -- Change the current working directory to *directory*.
+----------------------------------------------------------
 
 Synopsis
---------
+~~~~~~~~
+
+**cd** [options...] [directory]
+
+Description
+~~~~~~~~~~~
+
+Change the current working directory to *directory*.
+
+Frequently used options
+~~~~~~~~~~~~~~~~~~~~~~~
+
+-p 
+    Do not follow symbolic links
+
+-l 
+    Do follow symbolic links
+
+Data manipulation
+=================
+
+dos2unix -- DOS/Mac to Unix and vice versa text file format converter
+---------------------------------------------------------------------
+
+apropos -- search the whatis database for strings
+-------------------------------------------------
+
 
 **apropos** {keywords...}
 
@@ -15,12 +46,13 @@ apropos searches a set of database files containing short
 descriptions of system commands for keywords and displays the
 result on the standard output.
 
------
+
+----
 
 .. _command-bg:
 
-bg --- background
-=================
+bg -- background
+================
 
 Synopsis
 --------
@@ -40,13 +72,8 @@ stopped will allow it to run in the background.
 
 .. _command-bzip2:
 
-bzip2
-=====
-
-Name
-----
-
 bzip2 -- a block-sorting file compressor
+========================================
 
 Synopsis
 --------
@@ -86,34 +113,6 @@ Concatenate FILE(s), or standard input, to standard output.
 Frequently used options
 -----------------------
 
-.. _command-cd:
-
-cd
-==
-
-Name
-----
-
-cd -- Change the current working directory to *directory*.
-
-Synopsis
---------
-
-**cd** [options...] [directory]
-
-Description
------------
-
-Change the current working directory to *directory*.
-
-Frequently used options
------------------------
-
--p 
-    Do not follow symbolic links
-
--l 
-    Do follow symbolic links
 
 .. _command-chmod:
 
